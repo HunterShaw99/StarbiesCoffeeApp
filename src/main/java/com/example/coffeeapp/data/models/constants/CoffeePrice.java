@@ -1,4 +1,4 @@
-package com.example.coffeeapp.models.constants;
+package com.example.coffeeapp.data.models.constants;
 
 import java.math.BigDecimal;
 

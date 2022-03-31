@@ -1,4 +1,4 @@
-package com.example.coffeeapp.models.constants;
+package com.example.coffeeapp.data.models.constants;
 
 public enum Dairy {
     WHOLE("Whole"), SKIM("Skim"), _2PERCENT("2%"),

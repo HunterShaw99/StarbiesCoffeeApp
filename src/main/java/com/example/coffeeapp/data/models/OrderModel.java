@@ -1,6 +1,6 @@
-package com.example.coffeeapp.models;
+package com.example.coffeeapp.data.models;
 
-import com.example.coffeeapp.models.constants.OrderStatus;
+import com.example.coffeeapp.data.models.constants.OrderStatus;
 import javafx.collections.ObservableList;
 
 import java.io.Serializable;

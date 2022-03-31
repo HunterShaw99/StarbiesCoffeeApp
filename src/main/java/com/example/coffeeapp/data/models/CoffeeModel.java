@@ -1,10 +1,10 @@
-package com.example.coffeeapp.models;
+package com.example.coffeeapp.data.models;
 
 
 
-import com.example.coffeeapp.models.constants.Dairy;
-import com.example.coffeeapp.models.constants.Flavor;
-import com.example.coffeeapp.models.constants.Size;
+import com.example.coffeeapp.data.models.constants.Dairy;
+import com.example.coffeeapp.data.models.constants.Flavor;
+import com.example.coffeeapp.data.models.constants.Size;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
