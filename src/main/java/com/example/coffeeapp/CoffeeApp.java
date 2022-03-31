@@ -11,8 +11,8 @@ public class CoffeeApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CoffeeApp.class.getResource("controllers/menu-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
-        stage.setTitle("Starb's Coffee");
+        Scene scene = new Scene(fxmlLoader.load(), 600, 800);
+        stage.setTitle("Stardeers Coffee");
         stage.setScene(scene);
         stage.show();
     }
