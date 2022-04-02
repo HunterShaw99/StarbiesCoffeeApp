@@ -12,7 +12,7 @@ public class CoffeeApp extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(CoffeeApp.class.getResource("controllers/menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 800);
-        stage.setTitle("Stardeers Coffee");
+        stage.setTitle("Stardoes Coffee");
         stage.setScene(scene);
         stage.show();
     }
