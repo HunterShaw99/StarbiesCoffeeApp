@@ -1,6 +1,5 @@
 package com.example.coffeeapp.data.models;
 
-import com.example.coffeeapp.data.models.constants.OrderStatus;
 import javafx.collections.ObservableList;
 
 import java.io.Serializable;
@@ -12,13 +11,11 @@ public class OrderModel implements Serializable {
     public BigDecimal orderTotal;
     public ObservableList<CoffeeModel> beverageLIST;
     public final String orderID;
-    public OrderStatus orderStatus;//Order Status is either {PROCESSING, DONE, CANCELLED}
 
-    public OrderModel(BigDecimal orderTotal, ObservableList<CoffeeModel> beverageLIST, OrderStatus orderStatus) {
+    public OrderModel(BigDecimal orderTotal, ObservableList<CoffeeModel> beverageLIST) {
         this.orderTotal = orderTotal;
         this.beverageLIST = beverageLIST;
         orderID = UUID.randomUUID().toString().substring(0,11);
-        this.orderStatus = orderStatus;
     }
 
     public BigDecimal Get_OrderTotal() {
@@ -33,12 +30,6 @@ public class OrderModel implements Serializable {
         return orderID;
     }
 
-    public OrderStatus GetOrderStatus() {
-        return orderStatus;
-    }
 
-    public void SetOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
-    }
 
 }
