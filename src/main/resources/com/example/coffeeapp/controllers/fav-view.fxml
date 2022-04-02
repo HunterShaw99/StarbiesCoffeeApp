@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.coffeeapp.controllers.FavController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:id="favPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@menu-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.FavController">
+    <children>
+        <Label fx:id="favLabel" alignment="CENTER" layoutX="211.0" prefHeight="51.0" prefWidth="178.0" text="Favorites" />
+        <ListView fx:id="favListView" layoutY="54.0" prefHeight="666.0" prefWidth="600.0" />
+        <HBox fx:id="bottomHBox" layoutY="725.0" prefHeight="75.0" prefWidth="600.0" />
+    </children>
+</Pane>
