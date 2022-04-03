@@ -31,7 +31,7 @@ public class CartCell extends ListCell<CoffeeModel> {
 
     private void loadFXML() {
         try {
-            FXMLLoader loader = new FXMLLoader(CartCell.class.getResource("cart-cell-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(CartCell.class.getResource("CartCell.fxml"));
             loader.setController(this);
             loader.load();
         }
@@ -54,7 +54,7 @@ public class CartCell extends ListCell<CoffeeModel> {
             //flavorLabel.setText("Flavors: "+beverage.getFlavors());
             //priceLabel.setText("$"+beverage.getPrice().toString());
             //sizeLabel.setText(beverage.getSize().getVal());
-            coffeeImage.setImage(new Image(beverage.getImage()));
+            //coffeeImage.setImage(new Image(beverage.getImage()));
             setGraphic(base);
         }
     }
