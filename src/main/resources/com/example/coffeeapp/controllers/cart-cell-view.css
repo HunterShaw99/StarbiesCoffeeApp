@@ -1,0 +1,10 @@
+#beverageName {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 20;
+    -fx-font-weight: 400;
+}
+#base {
+    -fx-background-color: rgba(178, 178, 178, 0.25);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}

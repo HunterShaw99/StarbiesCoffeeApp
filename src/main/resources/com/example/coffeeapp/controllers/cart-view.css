@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
+#menuLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 35;
+}
+#bottomHBox {
+    -fx-background-color: #052615;
+}
