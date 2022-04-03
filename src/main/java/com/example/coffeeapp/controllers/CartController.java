@@ -26,18 +26,17 @@ public class CartController {
     private byte init = 0;
 
     public void initialize() {
-
+        if (init == 0) {
             menuListView.setItems(CartManager.GetInstance().GetCartItems());
             menuListView.setCellFactory(new CartCellFactory());
             init++;
-
-
+        }
     }
 
     @FXML
     void AddBevCart(MouseEvent event) {
         CoffeeModel m = new CoffeeModel();
-        m.setName("Cold Brew");
+        m.setName("Cold Brew a");
         CartManager.GetInstance().AddBeverage(m);
         System.out.println(m);
     }
