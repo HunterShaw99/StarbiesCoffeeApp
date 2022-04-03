@@ -4,13 +4,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@cart-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.CartController">
     <children>
         <Label fx:id="menuLabel" alignment="CENTER" layoutX="241.0" prefHeight="51.0" prefWidth="119.0" text="Cart" />
-        <ListView fx:id="menuListView" layoutY="54.0" prefHeight="666.0" prefWidth="600.0" />
+        <ListView fx:id="menuListView" layoutY="54.0" prefHeight="592.0" prefWidth="600.0" />
         <HBox fx:id="bottomHBox" layoutY="725.0" onMouseClicked="#AddBevCart" prefHeight="75.0" prefWidth="600.0">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#AddBevCart" text="Add Beverage to Cart">
@@ -22,5 +23,8 @@
          <padding>
             <Insets left="100.0" top="25.0" />
          </padding></HBox>
+      <Label fx:id="totalLabel" layoutX="231.0" layoutY="673.0" text="Total" />
+      <Label fx:id="totalValueLabel" layoutX="300.0" layoutY="673.0" text="Label" />
+      <Separator layoutY="646.0" prefWidth="600.0" />
     </children>
 </Pane>

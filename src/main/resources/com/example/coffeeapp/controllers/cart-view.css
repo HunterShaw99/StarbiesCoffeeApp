@@ -3,6 +3,11 @@
     -fx-font-family: 'Urbanist', sans-serif;
     -fx-font-size: 35;
 }
+#totalLabel, #totalValueLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 26;
+    -fx-font-weight: 400;
+}
 #bottomHBox {
     -fx-background-color: #052615;
 }
