@@ -27,7 +27,7 @@ public class CoffeeModel implements Serializable {
     public CoffeeModel() {
         itemID = UUID.randomUUID();
         this.price = BigDecimal.ZERO;
-        this.flavors = new ArrayList<Flavor>();
+        this.flavors = new ArrayList<Flavor>(8);
     }
 
     public CoffeeModel(String imageURL, BigDecimal price) {
@@ -42,7 +42,7 @@ public class CoffeeModel implements Serializable {
     }
 
     public String toString() {
-        return name+" Price:"+price.toString()+" Flavors:"+flavors.toString();
+        return name+" Price:"+price.toString()+" Flavors:"+flavors.toString()+"ID"+itemID;
     }
 
     public void setName(String name) {

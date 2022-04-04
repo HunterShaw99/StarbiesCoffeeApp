@@ -18,7 +18,7 @@ public class CartCell extends ListCell<CoffeeModel> {
     private AnchorPane base;
 
     @FXML
-    private Label beverageName;
+    private Label beverageName, beveragePrice,milkLabel, sizeLabel;
 
     @FXML
     private ImageView coffeeImage;
@@ -50,10 +50,10 @@ public class CartCell extends ListCell<CoffeeModel> {
         } else {
             beverageID = beverage.getItemID();
             beverageName.setText(beverage.getName());
-            //milkLabel.setText(beverage.getMilk().getDairy());
+            milkLabel.setText(beverage.getMilk().getDairy());
             //flavorLabel.setText("Flavors: "+beverage.getFlavors());
-            //priceLabel.setText("$"+beverage.getPrice().toString());
-            //sizeLabel.setText(beverage.getSize().getVal());
+            beveragePrice.setText("$"+beverage.getPrice());
+            sizeLabel.setText(beverage.getSize().getVal());
             //coffeeImage.setImage(new Image(beverage.getImage()));
             setGraphic(base);
         }

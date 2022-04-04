@@ -2,6 +2,8 @@ package com.example.coffeeapp.controllers;
 
 import com.example.coffeeapp.data.CartManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
+import com.example.coffeeapp.data.models.constants.Dairy;
+import com.example.coffeeapp.data.models.constants.Size;
 import com.example.coffeeapp.observer.Observer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -46,6 +48,8 @@ public class CartController implements Observer {
         CoffeeModel m = new CoffeeModel();
         m.setName("Cold Brew a");
         m.setPrice(MEDIUM_COST);
+        m.setMilk(Dairy.SOY);
+        m.setSize(Size.MEDIUM);
         CartManager.GetInstance().AddBeverage(m);
         System.out.println(m);
     }
