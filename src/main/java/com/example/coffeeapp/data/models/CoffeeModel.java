@@ -51,6 +51,10 @@ public class CoffeeModel implements Serializable {
         return this.itemID;
     }
 
+    public void setItemID(UUID itemID) {
+        this.itemID = itemID;
+    }
+
     public String toString() {
         return name+" Price:"+price.toString()+" Flavors:"+flavors.toString()+"ID"+itemID;
     }

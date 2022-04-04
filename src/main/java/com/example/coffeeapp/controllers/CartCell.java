@@ -3,6 +3,7 @@ package com.example.coffeeapp.controllers;
 import com.example.coffeeapp.data.CartManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.AddBeverageTask;
+import com.example.coffeeapp.tasks.RemoveBeverageTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,6 +71,11 @@ public class CartCell extends ListCell<CoffeeModel> {
     @FXML
     void DuplicateBeverageEvent(MouseEvent event) {
         Platform.runLater(new AddBeverageTask(beverageID));
+    }
+
+    @FXML
+    void RemoveBeverageEvent(MouseEvent event) {
+        Platform.runLater(new RemoveBeverageTask(beverageID));
     }
 
 

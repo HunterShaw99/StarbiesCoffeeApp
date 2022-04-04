@@ -7,17 +7,18 @@ import java.util.UUID;
 
 public class AddBeverageTask implements Runnable {
 
-    private CoffeeModel m;
+    private UUID toAdd;
 
     public AddBeverageTask(UUID mID) {
-        CoffeeModel d = CartManager.GetInstance().GetBeverage(mID);
-        this.m = new CoffeeModel(d.getImage(), d.getPrice(), d.getFlavors(), d.getMilk(), d.getSize(), d.getName());
-        d = null;
+        toAdd = mID;
     }
 
     @Override
     public void run() {
+        CoffeeModel m = CartManager.GetInstance().GetBeverage(toAdd);
+        m.setItemID(UUID.randomUUID());
         CartManager.GetInstance().AddBeverage(m);
+        System.out.println(m.toString());
         m = null;
     }
 }
