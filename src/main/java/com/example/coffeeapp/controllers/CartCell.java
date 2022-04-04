@@ -1,12 +1,17 @@
 package com.example.coffeeapp.controllers;
 
+import com.example.coffeeapp.data.CartManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
+import com.example.coffeeapp.tasks.AddBeverageTask;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -18,7 +23,10 @@ public class CartCell extends ListCell<CoffeeModel> {
     private AnchorPane base;
 
     @FXML
-    private Label beverageName, beveragePrice,milkLabel, sizeLabel;
+    private Label beverageName, beveragePrice,milkLabel, sizeLabel, flavorLabel;
+
+    @FXML
+    private Button addButton, removeButton, editButton;
 
     @FXML
     private ImageView coffeeImage;
@@ -51,12 +59,17 @@ public class CartCell extends ListCell<CoffeeModel> {
             beverageID = beverage.getItemID();
             beverageName.setText(beverage.getName());
             milkLabel.setText(beverage.getMilk().getDairy());
-            //flavorLabel.setText("Flavors: "+beverage.getFlavors());
+            flavorLabel.setText(beverage.getFlavors().toString().toLowerCase());
             beveragePrice.setText("$"+beverage.getPrice());
             sizeLabel.setText(beverage.getSize().getVal());
             //coffeeImage.setImage(new Image(beverage.getImage()));
             setGraphic(base);
         }
+    }
+
+    @FXML
+    void DuplicateBeverageEvent(MouseEvent event) {
+        Platform.runLater(new AddBeverageTask(beverageID));
     }
 
 

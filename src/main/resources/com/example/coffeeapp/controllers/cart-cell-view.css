@@ -3,16 +3,25 @@
     -fx-font-size: 20;
     -fx-font-weight: 400;
 }
-.separator .line {
-    -fx-border-style: solid;
-    -fx-border-color: rgba(68, 68, 68, 0.3);
-    -fx-border-width: 1px;
-
+#flavorLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 18;
+    -fx-font-weight: 400;
 }
 #beverageName {
     -fx-font-family: 'Urbanist', sans-serif;
     -fx-font-size: 26;
     -fx-font-weight: 700;
+}
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(68, 68, 68, 0.3);
+}
+.separator .line {
+    -fx-border-style: solid;
+    -fx-border-color: rgba(68, 68, 68, 0.3);
+    -fx-border-width: 1px;
+
 }
 #base {
     -fx-background-color: rgba(178, 178, 178, 0.25);

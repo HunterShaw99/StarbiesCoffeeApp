@@ -37,6 +37,16 @@ public class CoffeeModel implements Serializable {
         this.flavors = new ArrayList<Flavor>();
     }
 
+    public CoffeeModel(String imageURL, BigDecimal price, List<Flavor>flavors, Dairy milk, Size size, String name) {
+        itemID = UUID.randomUUID();
+        this.price = price;
+        image = imageURL;
+        this.flavors = flavors;
+        this.milk = milk;
+        this.size = size;
+        this.name = name;
+    }
+
     public UUID getItemID() {
         return this.itemID;
     }
