@@ -25,7 +25,7 @@ dist/
 
 # JetBrains IDE
 .idea/
-
+coffeeApp.iml
 # Unit test reports
 TEST*.xml
 
