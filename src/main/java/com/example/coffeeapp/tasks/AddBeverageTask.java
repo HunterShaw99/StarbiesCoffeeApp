@@ -15,10 +15,9 @@ public class AddBeverageTask implements Runnable {
 
     @Override
     public void run() {
-        CoffeeModel m = CartManager.GetInstance().GetBeverage(toAdd);
-        m.setItemID(UUID.randomUUID());
+        CoffeeModel m = new CoffeeModel(CartManager.GetInstance().GetBeverage(toAdd));
         CartManager.GetInstance().AddBeverage(m);
-        System.out.println(m.toString());
+        System.out.println(m);
         m = null;
     }
 }

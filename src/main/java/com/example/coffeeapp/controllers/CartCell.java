@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -32,7 +31,7 @@ public class CartCell extends ListCell<CoffeeModel> {
     @FXML
     private ImageView coffeeImage;
 
-    private UUID beverageID;
+    private UUID itemID;
 
     public CartCell() {
         loadFXML();
@@ -57,7 +56,7 @@ public class CartCell extends ListCell<CoffeeModel> {
             setText(null);
             setGraphic(null);
         } else {
-            beverageID = beverage.getItemID();
+            itemID = beverage.getItemID();
             beverageName.setText(beverage.getName());
             milkLabel.setText(beverage.getMilk().getDairy());
             flavorLabel.setText(beverage.getFlavors().toString().toLowerCase());
@@ -70,12 +69,18 @@ public class CartCell extends ListCell<CoffeeModel> {
 
     @FXML
     void DuplicateBeverageEvent(MouseEvent event) {
-        Platform.runLater(new AddBeverageTask(beverageID));
+        UUID x = itemID;
+        Platform.runLater(new AddBeverageTask(x));
     }
 
     @FXML
     void RemoveBeverageEvent(MouseEvent event) {
-        Platform.runLater(new RemoveBeverageTask(beverageID));
+        Platform.runLater(new RemoveBeverageTask(itemID));
+    }
+
+    @FXML
+    void EditBeverageEvent(MouseEvent event) {
+        System.out.println(CartManager.GetInstance().GetBeverage(itemID));
     }
 
 
