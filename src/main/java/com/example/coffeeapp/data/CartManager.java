@@ -50,6 +50,7 @@ public class CartManager implements Subject {
      */
     public void AddBeverage(CoffeeModel toAdd) {
         _currentOrder.add(toAdd);
+        notifyObservers();
     }
 
     /**
