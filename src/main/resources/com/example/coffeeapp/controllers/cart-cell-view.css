@@ -1,0 +1,33 @@
+.label {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 20;
+    -fx-font-weight: 400;
+}
+#flavorLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 18;
+    -fx-font-weight: 400;
+}
+#beverageName {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 26;
+    -fx-font-weight: 700;
+}
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(68, 68, 68, 0.3);
+}
+#coffeeImage {
+    -fx-effect: dropshadow(three-pass-box, #1f0f04, 10, .07, 0.5,0.5);
+}
+.separator .line {
+    -fx-border-style: solid;
+    -fx-border-color: rgba(68, 68, 68, 0.3);
+    -fx-border-width: 1px;
+
+}
+#base {
+    -fx-background-color: rgba(178, 178, 178, 0.25);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
