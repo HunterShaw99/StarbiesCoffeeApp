@@ -14,28 +14,44 @@
         <Label fx:id="menuLabel" alignment="CENTER" layoutX="241.0" prefHeight="51.0" prefWidth="119.0" text="Cart" />
         <ListView fx:id="menuListView" layoutY="54.0" prefHeight="592.0" prefWidth="600.0" />
       <Button layoutX="58.0" layoutY="680.0" mnemonicParsing="false" onMouseClicked="#AddBevCart" text="Add Beverage to Cart" />
-        <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="725.0" prefHeight="75.0" prefWidth="600.0" spacing="100.0">
+        <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="717.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/menu-icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/heart-icon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/recents.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/shopping-bag.png" />
-               </image>
-            </ImageView>
+            <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/menu-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/heart-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/recents.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/shopping-bag.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children></HBox>
       <Label fx:id="totalLabel" layoutX="231.0" layoutY="673.0" text="Total" />
       <Label fx:id="totalValueLabel" layoutX="300.0" layoutY="673.0" text="Label" />

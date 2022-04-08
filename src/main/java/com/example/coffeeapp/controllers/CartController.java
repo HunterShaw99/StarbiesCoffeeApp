@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 
 import static com.example.coffeeapp.data.models.constants.CoffeePrice.MEDIUM_COST;
@@ -57,6 +58,11 @@ public class CartController implements Observer {
         m.addFlavor(Flavor.MOCHA);
         CartManager.GetInstance().AddBeverage(m);
         System.out.println(m);
+    }
+
+    @FXML
+    void MenuEvent(MouseEvent event) throws IOException {
+        ControllerHandler.GetInstance().Transition(0);
     }
 
 

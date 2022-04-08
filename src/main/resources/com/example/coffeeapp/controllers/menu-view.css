@@ -3,6 +3,9 @@
     -fx-font-family: 'Urbanist', sans-serif;
     -fx-font-size: 35;
 }
+.button {
+    -fx-background-color: transparent;
+}
 #bottomHBox {
     -fx-background-color: #052615;
 }
