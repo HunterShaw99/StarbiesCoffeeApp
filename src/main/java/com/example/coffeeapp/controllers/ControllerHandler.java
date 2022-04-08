@@ -11,16 +11,16 @@ import java.util.List;
 
 import static com.example.coffeeapp.utility.SceneUrl.*;
 
-public class StageManager {
+public class ControllerHandler {
 
-    private static volatile StageManager instance;
+    private static volatile ControllerHandler instance;
     private List<Scene> views;
     private Parent root;
     private final int X = 600;
     private final int Y = 800;
     private Stage stage;
 
-    private StageManager() throws IOException {
+    private ControllerHandler() throws IOException {
         views = new ArrayList<>(5);
         FXMLLoader loader = new FXMLLoader();
         root = loader.load(getClass().getResource(MENU_URL));
@@ -33,11 +33,11 @@ public class StageManager {
         views.add(new Scene(root, X, Y));
     }
 
-    public static StageManager GetInstance() throws IOException {
+    public static ControllerHandler GetInstance() throws IOException {
         if (instance == null) {
-            synchronized (StageManager.class) {
+            synchronized (ControllerHandler.class) {
                 if (instance == null) {
-                    instance = new StageManager();
+                    instance = new ControllerHandler();
                 }
             }
         }
