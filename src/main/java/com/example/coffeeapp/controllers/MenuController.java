@@ -32,5 +32,15 @@ public class MenuController {
         ControllerHandler.GetInstance().Transition(3);
     }
 
+    @FXML
+    void FavEvent(MouseEvent event) {
+
+    }
+
+    @FXML
+    void RecentsEvent(MouseEvent event) {
+
+    }
+
 
 }

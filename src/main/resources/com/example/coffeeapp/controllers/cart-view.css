@@ -8,6 +8,9 @@
     -fx-font-size: 26;
     -fx-font-weight: 400;
 }
+.button {
+    -fx-background-color: transparent;
+}
 #bottomHBox {
     -fx-background-color: #052615;
 }
