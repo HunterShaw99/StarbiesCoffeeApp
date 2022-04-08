@@ -29,7 +29,7 @@ public class MenuController {
 
     @FXML
     void CartEvent(MouseEvent event) throws IOException {
-        StageManager.GetInstance().Transition(3);
+        ControllerHandler.GetInstance().Transition(3);
     }
 
 
