@@ -3,12 +3,11 @@ package com.example.coffeeapp.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class MenuController {
 
@@ -26,6 +25,11 @@ public class MenuController {
 
     public void initialize() {
 
+    }
+
+    @FXML
+    void CartEvent(MouseEvent event) throws IOException {
+        StageManager.GetInstance().Transition(3);
     }
 
 
