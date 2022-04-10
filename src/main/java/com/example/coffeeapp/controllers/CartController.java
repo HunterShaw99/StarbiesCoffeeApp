@@ -65,6 +65,22 @@ public class CartController implements Observer {
         ControllerHandler.GetInstance().Transition(0);
     }
 
+    @FXML
+    void CartEvent(MouseEvent event) throws IOException {
+        ControllerHandler.GetInstance().Transition(3);
+    }
+
+    @FXML
+    void FavEvent(MouseEvent event) throws IOException {
+        ControllerHandler.GetInstance().Transition(1);
+    }
+
+    @FXML
+    void RecentsEvent(MouseEvent event) throws IOException {
+        ControllerHandler.GetInstance().Transition(2);
+    }
+
+
 
     @Override
     public void update(BigDecimal total) {

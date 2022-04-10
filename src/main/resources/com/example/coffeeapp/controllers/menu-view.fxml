@@ -14,7 +14,7 @@
       <ListView fx:id="menuListView" layoutY="54.0" prefHeight="657.0" prefWidth="600.0" />
       <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="717.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
          <children>
-            <Button mnemonicParsing="false">
+            <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,7 +23,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false">
+            <Button mnemonicParsing="false" onMouseClicked="#FavEvent">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#FavEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false">
+            <Button mnemonicParsing="false" onMouseClicked="#RecentsEvent">
                <graphic>
                   <ImageView fitHeight="75.0" fitWidth="75.0" onMouseClicked="#RecentsEvent" pickOnBounds="true" preserveRatio="true">
                      <image>

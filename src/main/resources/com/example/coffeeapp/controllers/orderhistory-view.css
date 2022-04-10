@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
+#historyLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 35;
+}
+.button {
+    -fx-background-color: transparent;
+}
+#bottomHBox {
+    -fx-background-color: #052615;
+}
+.list-cell, .list-view {
+    -fx-background-color: transparent;
+}
+
+#historyListView .scroll-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+#historyListView .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(190, 190, 190, 0.5);
+}
+

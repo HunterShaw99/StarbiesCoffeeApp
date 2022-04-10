@@ -18,7 +18,7 @@
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#MenuEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/menu-icon.png" />
                      </image>
@@ -27,7 +27,7 @@
             </Button>
             <Button mnemonicParsing="false">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#FavEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/heart-icon.png" />
                      </image>
@@ -36,7 +36,7 @@
             </Button>
             <Button mnemonicParsing="false">
                <graphic>
-                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="75.0" fitWidth="75.0" onMouseClicked="#RecentsEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/recents.png" />
                      </image>
@@ -45,7 +45,7 @@
             </Button>
             <Button mnemonicParsing="false">
                <graphic>
-                  <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="75.0" fitWidth="75.0" onMouseClicked="#CartEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/shopping-bag.png" />
                      </image>
