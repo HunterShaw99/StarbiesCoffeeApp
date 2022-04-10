@@ -1,5 +1,7 @@
 package com.example.coffeeapp.controllers;
 
+import com.example.coffeeapp.tasks.ViewChangeTask;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -7,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import java.io.IOException;
+
 
 public class MenuController {
 
@@ -28,23 +30,23 @@ public class MenuController {
     }
 
     @FXML
-    void MenuEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(0);
+    void MenuEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(0));
     }
 
     @FXML
-    void CartEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(3);
+    void CartEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(3));
     }
 
     @FXML
-    void FavEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(1);
+    void FavEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(1));
     }
 
     @FXML
-    void RecentsEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(2);
+    void RecentsEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(2));
     }
 
 

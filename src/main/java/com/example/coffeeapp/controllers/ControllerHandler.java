@@ -6,31 +6,29 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.example.coffeeapp.utility.SceneUrl.*;
 
 public class ControllerHandler {
 
     private static volatile ControllerHandler instance;
-    private List<Scene> views;
+    private volatile Scene views[];
     private Parent root;
     private final int X = 600;
     private final int Y = 800;
-    private Stage stage;
+    private static Stage stage;
 
     private ControllerHandler() throws IOException {
-        views = new ArrayList<>(5);
+        views = new Scene[5];
         FXMLLoader loader = new FXMLLoader();
         root = loader.load(getClass().getResource(MENU_URL));
-        views.add(new Scene(root, X, Y));
+        views[0] = new Scene(root, X, Y);
         root = loader.load(getClass().getResource(FAV_URL));
-        views.add(new Scene(root, X, Y));
+        views[1] = new Scene(root, X, Y);
         root = loader.load(getClass().getResource(RECENT_URL));
-        views.add(new Scene(root, X, Y));
+        views[2]= new Scene(root, X, Y);
         root = loader.load(getClass().getResource(CART_URL));
-        views.add(new Scene(root, X, Y));
+        views[3]= new Scene(root, X, Y);
     }
 
     public static ControllerHandler GetInstance() throws IOException {
@@ -45,15 +43,21 @@ public class ControllerHandler {
     }
 
     public void Transition(int sceneNum) {
-        if (sceneNum > views.size()-1) {
-            return;
-        }
-        stage.setScene(views.get(sceneNum));
+        stage.setScene(Get(sceneNum));
         stage.show();
     }
 
     public void SetStage(Stage stage) {
         this.stage = stage;
+    }
+
+    private Scene Get(int index) {
+        for (int i = 0; i < 4; i++) {
+            if (i == index) {
+                return views[i];
+            }
+        }
+        return null;
     }
 
 }

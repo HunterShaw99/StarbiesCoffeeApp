@@ -6,6 +6,8 @@ import com.example.coffeeapp.data.models.constants.Dairy;
 import com.example.coffeeapp.data.models.constants.Flavor;
 import com.example.coffeeapp.data.models.constants.Size;
 import com.example.coffeeapp.observer.Observer;
+import com.example.coffeeapp.tasks.ViewChangeTask;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -13,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-import java.io.IOException;
+
 import java.math.BigDecimal;
 
 import static com.example.coffeeapp.data.models.constants.CoffeePrice.MEDIUM_COST;
@@ -39,7 +41,7 @@ public class CartController implements Observer {
         if (init == 0) {
             menuListView.setItems(CartManager.GetInstance().GetCartItems());
             menuListView.setCellFactory(new CartCellFactory());
-            totalValueLabel.setText("");
+            totalValueLabel.setText("$"+BigDecimal.ZERO);
             CartManager.GetInstance().registerObserver(this);
             init++;
         }
@@ -61,23 +63,23 @@ public class CartController implements Observer {
     }
 
     @FXML
-    void MenuEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(0);
+    void CartEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(3));
     }
 
     @FXML
-    void CartEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(3);
+    void FavEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(1));
     }
 
     @FXML
-    void FavEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(1);
+    void MenuEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(0));
     }
 
     @FXML
-    void RecentsEvent(MouseEvent event) throws IOException {
-        ControllerHandler.GetInstance().Transition(2);
+    void RecentsEvent(MouseEvent event) {
+        Platform.runLater(new ViewChangeTask(2));
     }
 
 
