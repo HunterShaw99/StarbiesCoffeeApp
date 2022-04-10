@@ -19,7 +19,7 @@ public class ControllerHandler {
     private static Stage stage;
 
     private ControllerHandler() throws IOException {
-        views = new Scene[5];
+        views = new Scene[4];
         FXMLLoader loader = new FXMLLoader();
         root = loader.load(getClass().getResource(MENU_URL));
         views[0] = new Scene(root, X, Y);
