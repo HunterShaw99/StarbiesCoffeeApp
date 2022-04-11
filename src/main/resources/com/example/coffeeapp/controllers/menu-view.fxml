@@ -55,7 +55,7 @@
          <graphic>
             <ImageView fx:id="logoutImg" fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Downloads/logout.png" />
+                  <Image url="@../images/logout.png" />
                </image></ImageView>
          </graphic>
       </Button>
