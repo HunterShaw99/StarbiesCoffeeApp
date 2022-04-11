@@ -51,5 +51,13 @@
                </graphic>
             </Button>
          </children></HBox>
+      <Button fx:id="logoutBtn" layoutX="531.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#LogoutEvent" prefHeight="25.0" prefWidth="43.0">
+         <graphic>
+            <ImageView fx:id="logoutImg" fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Downloads/logout.png" />
+               </image></ImageView>
+         </graphic>
+      </Button>
    </children>
 </Pane>

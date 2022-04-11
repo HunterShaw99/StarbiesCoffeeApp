@@ -19,7 +19,7 @@ public class ControllerHandler {
     private static Stage stage;
 
     private ControllerHandler() throws IOException {
-        views = new Scene[4];
+        views = new Scene[5];
         FXMLLoader loader = new FXMLLoader();
         root = loader.load(getClass().getResource(MENU_URL));
         views[0] = new Scene(root, X, Y);
@@ -29,6 +29,8 @@ public class ControllerHandler {
         views[2]= new Scene(root, X, Y);
         root = loader.load(getClass().getResource(CART_URL));
         views[3]= new Scene(root, X, Y);
+        root = loader.load(getClass().getResource(LOGIN_URL));
+        views[4] = new Scene(root, X, Y);
     }
 
     public static ControllerHandler GetInstance() throws IOException {
@@ -52,7 +54,7 @@ public class ControllerHandler {
     }
 
     private Scene Get(int index) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             if (i == index) {
                 return views[i];
             }
