@@ -19,7 +19,7 @@ public class MenuController {
     private HBox bottomHBox;
 
     @FXML
-    private Button logoutBtn;
+    private Button logoutBtn, cartBtn, favBtn, menuBtn, recentBtn;
 
     @FXML
     private ImageView logoutImg;
@@ -64,5 +64,10 @@ public class MenuController {
         Platform.runLater(new ViewChangeTask(4));
     }
 
+    @FXML
+    void CustomizeEvent(MouseEvent event) {
+        Button b = (Button)event.getSource();
+        System.out.println(b.getText());
+    }
 
 }

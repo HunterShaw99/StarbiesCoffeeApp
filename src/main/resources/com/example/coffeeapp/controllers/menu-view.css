@@ -4,6 +4,12 @@
     -fx-font-size: 35;
 }
 .button {
+    -fx-text-fill: white;
+    -fx-background-color: rgba(10, 44, 24, 0.9);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+#cartBtn, #menuBtn, #favBtn, #recentBtn, #logoutBtn {
     -fx-background-color: transparent;
 }
 #bottomHBox {

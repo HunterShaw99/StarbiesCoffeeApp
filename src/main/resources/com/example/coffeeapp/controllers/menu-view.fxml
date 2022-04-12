@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@menu-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.MenuController">
    <children>
       <Label fx:id="menuLabel" alignment="CENTER" layoutX="241.0" prefHeight="51.0" prefWidth="119.0" text="Menu" />
-      <ListView fx:id="menuListView" layoutY="54.0" prefHeight="657.0" prefWidth="600.0" />
-      <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="717.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
+      <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="725.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">
+            <Button fx:id="menuBtn" mnemonicParsing="false" onMouseClicked="#MenuEvent">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -23,7 +26,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#FavEvent">
+            <Button fx:id="favBtn" mnemonicParsing="false" onMouseClicked="#FavEvent">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#FavEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +35,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#RecentsEvent">
+            <Button fx:id="recentBtn" mnemonicParsing="false" onMouseClicked="#RecentsEvent">
                <graphic>
                   <ImageView fitHeight="75.0" fitWidth="75.0" onMouseClicked="#RecentsEvent" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,7 +44,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#CartEvent">
+            <Button fx:id="cartBtn" mnemonicParsing="false" onMouseClicked="#CartEvent">
                <graphic>
                   <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,5 +62,96 @@
                </image></ImageView>
          </graphic>
       </Button>
+      <GridPane layoutY="58.0" prefHeight="662.0" prefWidth="600.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0">
+               <image>
+                  <Image url="@../images/coldbrew.png" />
+               </image>
+            </ImageView>
+            <Button mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Coldbrew" translateX="30.0" translateY="45.0" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../images/icedAmer.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Iced Americano" translateX="30.0" translateY="45.0" GridPane.columnIndex="1" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="214.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../images/icedCap.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="214.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Iced Cuppaccino" translateX="30.0" translateY="45.0" GridPane.columnIndex="2" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="407.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/icedMach.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="407.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Iced Macchiato" translateX="30.0" translateY="45.0" GridPane.rowIndex="1" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/icedLatte.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Iced Latte" translateX="30.0" translateY="45.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="214.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/icedCoffee.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="214.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Iced Coffee" translateX="30.0" translateY="45.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="214.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../images/americano.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="214.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Americano" translateX="30.0" translateY="45.0" GridPane.rowIndex="2" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../images/cap.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Cuppaccino" translateX="30.0" translateY="45.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="214.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../images/mach.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="214.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Macchiato" translateX="30.0" translateY="45.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="407.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../images/latte.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="407.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Cafe Latte" translateX="30.0" translateY="45.0" GridPane.rowIndex="3" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../images/regCoffee.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Drip Coffee" translateX="30.0" translateY="45.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="214.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-25.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../images/shot.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="214.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#CustomizeEvent" prefHeight="31.0" prefWidth="137.0" text="Espresso Shot" translateX="30.0" translateY="45.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Separator layoutY="50.0" prefWidth="600.0" />
    </children>
 </Pane>

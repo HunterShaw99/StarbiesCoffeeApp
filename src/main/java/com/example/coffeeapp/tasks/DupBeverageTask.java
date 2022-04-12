@@ -5,11 +5,11 @@ import com.example.coffeeapp.data.models.CoffeeModel;
 
 import java.util.UUID;
 
-public class AddBeverageTask implements Runnable {
+public class DupBeverageTask implements Runnable {
 
     private UUID toAdd;
 
-    public AddBeverageTask(UUID mID) {
+    public DupBeverageTask(UUID mID) {
         toAdd = mID;
     }
 
