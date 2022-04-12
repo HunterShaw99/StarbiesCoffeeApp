@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static com.example.coffeeapp.utility.SceneUrl.*;
 
@@ -21,15 +22,15 @@ public class ControllerHandler {
     private ControllerHandler() throws IOException {
         views = new Scene[5];
         FXMLLoader loader = new FXMLLoader();
-        root = loader.load(getClass().getResource(MENU_URL));
+        root = loader.load(Objects.requireNonNull(getClass().getResource(MENU_URL)));
         views[0] = new Scene(root, X, Y);
-        root = loader.load(getClass().getResource(FAV_URL));
+        root = loader.load(Objects.requireNonNull(getClass().getResource(FAV_URL)));
         views[1] = new Scene(root, X, Y);
-        root = loader.load(getClass().getResource(RECENT_URL));
+        root = loader.load(Objects.requireNonNull(getClass().getResource(RECENT_URL)));
         views[2]= new Scene(root, X, Y);
         root = loader.load(getClass().getResource(CART_URL));
         views[3]= new Scene(root, X, Y);
-        root = loader.load(getClass().getResource(LOGIN_URL));
+        root = loader.load(Objects.requireNonNull(getClass().getResource(LOGIN_URL)));
         views[4] = new Scene(root, X, Y);
     }
 
