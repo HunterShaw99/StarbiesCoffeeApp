@@ -13,7 +13,7 @@ public class TwoWayCommunicationServer implements Runnable{
     ObjectOutputStream out;
     ObjectInputStream in;
     Scanner scanner;
-    String test;
+    String server;
     boolean running;
 
     public TwoWayCommunicationServer(String args[]) throws IOException{
@@ -22,8 +22,8 @@ public class TwoWayCommunicationServer implements Runnable{
         }
         else{
             ServerSocket s = new ServerSocket(PORT);
-            test = args[0];
-            System.out.println("writing " + test + ". Waiting for client");
+            server = "server";
+            System.out.println(server + " writing "+ ". Waiting for client");
             try{
                 Socket socket = s.accept();
                 scanner = new Scanner(System.in);
@@ -31,10 +31,10 @@ public class TwoWayCommunicationServer implements Runnable{
                 out.flush();
                 in = new ObjectInputStream(socket.getInputStream());
 
-                out.writeObject(test);
-                String test2 = (String) in.readObject();
+                out.writeObject(server);
+                String client = (String) in.readObject();
 
-                System.out.println("reading  " + test2);
+                System.out.println("reading from " + client);
                 running = true;
                 readThread = new Thread(this);
                 readThread.start();
@@ -57,7 +57,7 @@ public class TwoWayCommunicationServer implements Runnable{
                 }
                 else if(Thread.currentThread() == writeThread){
                     String MsgOut = scanner.nextLine();
-                    out.writeObject(test + " : " + MsgOut);
+                    out.writeObject(server + " : " + MsgOut);
                     out.flush();
                 }
             }
