@@ -13,7 +13,6 @@
     <children>
         <Label fx:id="menuLabel" alignment="CENTER" layoutX="241.0" prefHeight="51.0" prefWidth="119.0" text="Cart" />
         <ListView fx:id="menuListView" layoutY="54.0" prefHeight="592.0" prefWidth="600.0" />
-      <Button layoutX="58.0" layoutY="680.0" mnemonicParsing="false" onMouseClicked="#AddBevCart" text="Add Beverage to Cart" />
         <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="717.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">

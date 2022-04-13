@@ -5,6 +5,7 @@
 }
 .button {
     -fx-text-fill: white;
+    -fx-font-weight: 400;
     -fx-background-color: rgba(10, 44, 24, 0.9);
     -fx-background-radius: 12;
     -fx-border-radius: 12;

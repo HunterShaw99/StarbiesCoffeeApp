@@ -1,24 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
 .button {
-    -fx-font: 16px  Arial;
+    -fx-font-family: 'Urbanist', sans-serif;
     -fx-text-fill:  white;
-    -fx-font-weight: BOLD;
-    -fx-background-color:  #361d09;
-}
-#priceLabel, #totalPriceLabel {
-    -fx-font: 16px  Arial;
-    -fx-font-weight: BOLD;
-    -fx-text-fill:  #361d09;
-}
-#backBtn {
-    -fx-text-fill: #361d09;
-    -fx-background-color: white;
-}
-#headerBox {
-    -fx-background-color:  #361d09;
-    -fx-effect: dropshadow(three-pass-box, #1f0f04, 10, .07, 0.5,0.5);
-}
-BorderPane {
-    -fx-background-color:  #bbaea3 ;
+    -fx-font-weight: 400;
+    -fx-background-color: rgba(10, 44, 24, 0.9);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
 }
 .list-cell, .list-view {
     -fx-background-color: transparent;
@@ -35,9 +22,4 @@ BorderPane {
 }
 #customizeListView .scroll-bar:vertical .thumb {
     -fx-background-color: rgba(190, 190, 190, 0.5);
-}
-#centerVBox {
-    -fx-background-color:  white;
-    -fx-background-radius: 25px;
-    -fx-border-radius: 25px;
 }

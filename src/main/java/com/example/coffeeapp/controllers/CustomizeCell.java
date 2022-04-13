@@ -45,6 +45,8 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
     private Separator pageBreak;
 
     public void initialize() {
+        setDefaultDiary();
+        setDefaultSize();
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         smallPriceLabel.setText(formatter.format(CoffeePrice.SMALL_COST));
         mediumPriceLabel.setText(formatter.format(CoffeePrice.MEDIUM_COST));
@@ -56,8 +58,6 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
         AddEventHandlerForCheckbox(pumpkinCheckBox);
         AddEventHandlerForCheckbox(hazelnutCheckBox);
         AddEventHandlerForCheckbox(coconutCheckBox);
-        setDefaultDiary();
-        setDefaultSize();
     }
 
     public CustomizeCell() {

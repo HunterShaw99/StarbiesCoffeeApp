@@ -56,7 +56,7 @@ public class CoffeeModel implements Serializable {
     }
 
     public String toString() {
-        return name+" Price:"+price.toString()+" Flavors:"+flavors.toString()+"ID"+itemID;
+        return name+" Price:"+price.toString()+" Flavors:"+flavors.toString()+"ID"+itemID+"Size"+size+"MILK"+milk;
     }
 
     public void setName(String name) {
