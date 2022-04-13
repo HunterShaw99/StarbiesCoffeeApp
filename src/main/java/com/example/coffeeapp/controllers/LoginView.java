@@ -30,5 +30,9 @@ public class LoginView {
     void loginEvent(MouseEvent event) throws IOException {
         ControllerHandler.GetInstance().Transition(0);
     }
+    @FXML
+    void accountEvent(MouseEvent event) throws IOException {
+        ControllerHandler.GetInstance().Transition(5);
+    }
 
 }

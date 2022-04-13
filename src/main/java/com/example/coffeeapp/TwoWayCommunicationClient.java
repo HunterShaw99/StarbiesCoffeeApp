@@ -19,11 +19,11 @@ public class TwoWayCommunicationClient implements Runnable{
     String client;
     boolean running;
 
-    public TwoWayCommunicationClient(String[] args){
-        try{
-//            if(args.length < 2){
+    public TwoWayCommunicationClient(String[] args) {
+        try {
+//            if (args.length < 2) {
 //                System.out.println("Not enough arguments...terminating");
-//            }else{
+//            } else {
 
                 InetAddress addr = InetAddress.getByName(args[0]);
                 socket = new Socket(addr, PORT);
@@ -34,7 +34,7 @@ public class TwoWayCommunicationClient implements Runnable{
 
                 client = "client";
 
-                String server = (String)in.readObject();
+                String server = (String) in.readObject();
                 out.writeObject(client);
 
                 System.out.println("Communicate with : " + server);
@@ -45,10 +45,10 @@ public class TwoWayCommunicationClient implements Runnable{
                 readThread.start();
                 writeThread = new Thread(this);
                 writeThread.start();
-
-        }
-        catch(Exception e){
+//            }
+        } catch (Exception e) {
             System.out.println("Problem connecting");
+            System.out.println(e.getMessage());
         }
     }
 

@@ -7,8 +7,11 @@ import java.net.Socket;
 
 public class ServerApp {
     public static void main(String[] args) throws IOException {
-        args[0] = "server";
-        TwoWayCommunicationServer S = new TwoWayCommunicationServer(args);
+
+        String[] test = new String[1];
+        test[0]= "server";
+
+        TwoWayCommunicationServer S = new TwoWayCommunicationServer(test);
 
     }
 }
