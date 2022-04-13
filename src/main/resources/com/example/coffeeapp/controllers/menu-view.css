@@ -4,6 +4,8 @@
     -fx-font-size: 35;
 }
 .button {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 14;
     -fx-text-fill: white;
     -fx-font-weight: 400;
     -fx-background-color: rgba(10, 44, 24, 0.9);
