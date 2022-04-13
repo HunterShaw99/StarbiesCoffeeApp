@@ -6,6 +6,8 @@ import com.example.coffeeapp.TwoWayCommunicationClient;
 public class clientTest {
     public static void main(String[] args) throws IOException {
 
-        TwoWayCommunicationClient C = new TwoWayCommunicationClient(args);
+        String[] test = new String[1];
+        test[0]= "client";
+        TwoWayCommunicationClient C = new TwoWayCommunicationClient(test);
     }
 }
