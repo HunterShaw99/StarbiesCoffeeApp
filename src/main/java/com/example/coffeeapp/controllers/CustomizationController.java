@@ -39,6 +39,6 @@ public class CustomizationController {
 
     @FXML
     void ToMenuEvent(MouseEvent event) throws IOException {
-
+        ControllerHandler.GetInstance().Transition(0);
     }
 }

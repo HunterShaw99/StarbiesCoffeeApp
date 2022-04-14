@@ -1,6 +1,6 @@
 package com.example.coffeeapp.utility;
 
-public class ImageUrl {
+public abstract class ImageUrl {
 
     public static final String COLDBREW_URL = "file:src/main/resources/com/example/coffeeapp/images/coldbrew.png";
     public static final String ICED_AMERICANO = "file:src/main/resources/com/example/coffeeapp/images/icedAmer.png";

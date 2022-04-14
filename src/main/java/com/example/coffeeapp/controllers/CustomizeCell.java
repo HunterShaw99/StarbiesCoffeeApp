@@ -6,6 +6,8 @@ import com.example.coffeeapp.data.models.constants.CoffeePrice;
 import com.example.coffeeapp.data.models.constants.Dairy;
 import com.example.coffeeapp.data.models.constants.Flavor;
 import com.example.coffeeapp.data.models.constants.Size;
+import com.example.coffeeapp.tasks.EditDairyTask;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -98,8 +100,6 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
     private void setDefaultSize() {
         mediumLabel.setSelected(true);
         CartManager.GetInstance().GetCurrentItem().setSize(Size.MEDIUM);
-        //Somewhere in code, I already set default price to medium. I am too tired to check where ATM.
-        //CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.MEDIUM_COST));
     }
 
     @FXML
@@ -126,6 +126,28 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
     void setDiaryEvent(MouseEvent event) {
         RadioButton r = (RadioButton)event.getSource();
         switch (r.getId()) {
+            case "noDairyLabel":
+                Platform.runLater(new EditDairyTask(Dairy.NONE));
+                break;
+            case "wholeLabel":
+                Platform.runLater(new EditDairyTask(Dairy.WHOLE));
+                break;
+            case "_2percentLabel":
+                Platform.runLater(new EditDairyTask(Dairy._2PERCENT));
+                break;
+            case "nonFatLabel":
+                Platform.runLater(new EditDairyTask(Dairy.SKIM));
+                break;
+            case "soyLabel":
+                Platform.runLater(new EditDairyTask(Dairy.SOY));
+                break;
+            case "almondLabel":
+                Platform.runLater(new EditDairyTask(Dairy.ALMOND));
+                break;
+        }
+    }
+    /*
+     switch (r.getId()) {
             case "noDairyLabel":
                 if (CartManager.GetInstance().GetCurrentItem().getMilk() != Dairy.SOY || CartManager.GetInstance().GetCurrentItem().getMilk() != Dairy.ALMOND) {
                     CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().subtract(CoffeePrice.DAIRY_COST));
@@ -155,7 +177,7 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
                 CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.NON_DAIRY_COST));
                 break;
         }
-    }
+     */
 
 
     private void AddEventHandlerForCheckbox(CheckBox cb) {

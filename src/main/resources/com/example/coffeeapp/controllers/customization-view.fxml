@@ -33,7 +33,7 @@
       <Separator layoutY="59.0" prefWidth="600.0" />
       <HBox alignment="CENTER" layoutY="725.0" prefHeight="75.0" prefWidth="600.0">
          <children>
-            <Button fx:id="finishButton" mnemonicParsing="false" onMouseClicked="#AddToCart" prefHeight="51.0" prefWidth="115.0" text="Add To Cart" />
+            <Button fx:id="finishButton" mnemonicParsing="false" onMouseClicked="#AddToCart" prefHeight="30.0" prefWidth="115.0" text="Add To Cart" />
          </children>
       </HBox>
    </children>
