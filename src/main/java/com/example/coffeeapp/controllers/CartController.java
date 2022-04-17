@@ -48,21 +48,6 @@ public class CartController implements Observer {
     }
 
     @FXML
-    void AddBevCart(MouseEvent event) {
-        CoffeeModel m = new CoffeeModel();
-        m.setName("Cold Brew a");
-        m.setPrice(MEDIUM_COST);
-        m.setMilk(Dairy.SOY);
-        m.setSize(Size.MEDIUM);
-        m.addFlavor(Flavor.PUMPKIN_SPICE);
-        m.addFlavor(Flavor.VANILLA);
-        m.addFlavor(Flavor.COCONUT);
-        m.addFlavor(Flavor.MOCHA);
-        CartManager.GetInstance().AddBeverage(m);
-        System.out.println(m);
-    }
-
-    @FXML
     void CartEvent(MouseEvent event) {
         Platform.runLater(new ViewChangeTask(3));
     }

@@ -28,7 +28,7 @@ public class ControllerHandler {
         views[1] = new Scene(root, X, Y);
         root = loader.load(Objects.requireNonNull(getClass().getResource(RECENT_URL)));
         views[2]= new Scene(root, X, Y);
-        root = loader.load(getClass().getResource(CART_URL));
+        root = loader.load(Objects.requireNonNull(getClass().getResource(CART_URL)));
         views[3]= new Scene(root, X, Y);
         root = loader.load(Objects.requireNonNull(getClass().getResource(LOGIN_URL)));
         views[4] = new Scene(root, X, Y);

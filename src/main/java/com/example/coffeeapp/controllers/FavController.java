@@ -1,10 +1,12 @@
 package com.example.coffeeapp.controllers;
 
 
+import com.example.coffeeapp.data.FavManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.data.models.constants.Dairy;
 import com.example.coffeeapp.data.models.constants.Flavor;
 import com.example.coffeeapp.data.models.constants.Size;
+import com.example.coffeeapp.observer.Observer;
 import com.example.coffeeapp.tasks.ViewChangeTask;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -16,8 +18,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
+import java.math.BigDecimal;
 
-public class FavController {
+
+public class FavController implements Observer{
 
     @FXML
     private HBox bottomHBox;
@@ -31,8 +35,8 @@ public class FavController {
     @FXML
     private Pane favPane;
 
-    ObservableList<CoffeeModel> favs= FXCollections.observableArrayList();
 
+    private byte init = 0;
 
     public void initialize() {
         CoffeeModel icedCoffee = new CoffeeModel();
@@ -40,9 +44,15 @@ public class FavController {
         icedCoffee.addFlavor(Flavor.VANILLA);
         icedCoffee.setMilk(Dairy.SOY);
         icedCoffee.setSize(Size.MEDIUM);
-        favListView.setItems(favs);
-        favListView.setCellFactory(new CoffeeCellFactory());
-        favs.add(icedCoffee);
+        FavManager.GetInstance().AddBeverage(icedCoffee);
+        if (init == 0){
+            favListView.setItems(FavManager.GetInstance().GetFavItems());
+            favListView.setCellFactory(new CoffeeCellFactory());
+            FavManager.GetInstance().registerObserver(this);
+            init++;
+
+        }
+
     }
 
     @FXML
@@ -66,4 +76,8 @@ public class FavController {
     }
 
 
+    @Override
+    public void update(BigDecimal total) {
+
+    }
 }

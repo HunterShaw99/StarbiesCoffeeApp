@@ -28,6 +28,8 @@ public class LoginView {
 
     @FXML
     void loginEvent(MouseEvent event) throws IOException {
+        int id = usernameTxtFld.getText().hashCode();
+        System.out.println(id);
         ControllerHandler.GetInstance().Transition(0);
     }
     @FXML

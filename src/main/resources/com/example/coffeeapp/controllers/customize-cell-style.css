@@ -1,0 +1,24 @@
+#sizeLabel, #dairyLabel, #flavorLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill:  black;
+}
+#beverageNameLabel, #totalLabel {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 26px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill:  black;
+}
+#pageBreak .line{
+    -fx-border-color: rgb(10, 44, 24);
+    -fx-border-width: 4px;
+    -fx-border-style: solid;
+}
+RadioButton {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 16px;
+}
+#beverageImageView {
+    -fx-effect: dropshadow(three-pass-box, rgba(31, 15, 4, 0.79), 10, .07, 0.5,0.5);
+}

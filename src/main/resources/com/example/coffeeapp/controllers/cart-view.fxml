@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@cart-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.CartController">
+<Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@cart-view.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.CartController">
     <children>
         <Label fx:id="menuLabel" alignment="CENTER" layoutX="241.0" prefHeight="51.0" prefWidth="119.0" text="Cart" />
         <ListView fx:id="menuListView" layoutY="54.0" prefHeight="592.0" prefWidth="600.0" />
-      <Button layoutX="58.0" layoutY="680.0" mnemonicParsing="false" onMouseClicked="#AddBevCart" text="Add Beverage to Cart" />
-        <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="717.0" prefHeight="75.0" prefWidth="600.0" spacing="75.0">
+        <HBox fx:id="bottomHBox" alignment="CENTER" layoutY="715.0" prefHeight="80.0" prefWidth="600.0" spacing="75.0">
          <children>
             <Button mnemonicParsing="false" onMouseClicked="#MenuEvent">
                <graphic>

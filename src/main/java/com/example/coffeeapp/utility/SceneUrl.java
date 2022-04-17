@@ -7,4 +7,5 @@ public abstract class SceneUrl {
     public static final String CART_URL = "cart-view.fxml";
     public static final String LOGIN_URL = "login-view.fxml";
     public static final String ACCOUNT_URL = "CreateAccount-view.fxml";
+    public static final String CUSTOMIZE_URL = "customization-view.fxml";
 }

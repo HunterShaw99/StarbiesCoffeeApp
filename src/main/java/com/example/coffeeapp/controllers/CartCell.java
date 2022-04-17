@@ -2,17 +2,22 @@ package com.example.coffeeapp.controllers;
 
 import com.example.coffeeapp.data.CartManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
-import com.example.coffeeapp.tasks.AddBeverageTask;
+import com.example.coffeeapp.tasks.DupBeverageTask;
 import com.example.coffeeapp.tasks.RemoveBeverageTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -62,7 +67,7 @@ public class CartCell extends ListCell<CoffeeModel> {
             flavorLabel.setText(beverage.getFlavors().toString().toLowerCase());
             beveragePrice.setText("$"+beverage.getPrice());
             sizeLabel.setText(beverage.getSize().getVal());
-            //coffeeImage.setImage(new Image(beverage.getImage()));
+            coffeeImage.setImage(new Image(beverage.getImage()));
             setGraphic(base);
         }
     }
@@ -70,7 +75,7 @@ public class CartCell extends ListCell<CoffeeModel> {
     @FXML
     void DuplicateBeverageEvent(MouseEvent event) {
         UUID x = itemID;
-        Platform.runLater(new AddBeverageTask(x));
+        Platform.runLater(new DupBeverageTask(x));
     }
 
     @FXML
@@ -79,8 +84,16 @@ public class CartCell extends ListCell<CoffeeModel> {
     }
 
     @FXML
-    void EditBeverageEvent(MouseEvent event) {
-        System.out.println(CartManager.GetInstance().GetBeverage(itemID));
+    void EditBeverageEvent(MouseEvent event) throws IOException {
+        CartManager.GetInstance().SetCurrentItem(CartManager.GetInstance().GetBeverage(itemID));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("customization-view.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        ControllerHandler.GetInstance().SetStage(stage);
     }
 
 

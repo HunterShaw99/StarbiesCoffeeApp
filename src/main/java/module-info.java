@@ -9,4 +9,8 @@ module com.example.coffeeapp {
     opens com.example.coffeeapp.controllers to javafx.fxml;
     exports com.example.coffeeapp.utility;
     opens com.example.coffeeapp.utility to javafx.fxml;
+    exports com.example.coffeeapp.data.models;
+    opens com.example.coffeeapp.data.models to javafx.fxml;
+    exports com.example.coffeeapp.data;
+    opens com.example.coffeeapp.data to javafx.fxml;
 }
