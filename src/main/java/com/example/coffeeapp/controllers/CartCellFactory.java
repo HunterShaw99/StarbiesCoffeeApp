@@ -12,5 +12,4 @@ public class CartCellFactory implements Callback<ListView<CoffeeModel>, ListCell
         return new CartCell();
     }
 
-
 }

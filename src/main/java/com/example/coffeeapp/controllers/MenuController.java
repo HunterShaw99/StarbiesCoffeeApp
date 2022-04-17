@@ -1,6 +1,7 @@
 package com.example.coffeeapp.controllers;
 
 import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.FavManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.data.models.constants.CoffeePrice;
 import com.example.coffeeapp.tasks.ViewChangeTask;
@@ -120,6 +121,7 @@ public class MenuController {
         CoffeeModel m = new CoffeeModel(imageUrl, CoffeePrice.MEDIUM_COST);
         m.setName(name);
         CartManager.GetInstance().SetCurrentItem(m);
+        FavManager.GetInstance().AddBeverage(m);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("customization-view.fxml"));
         root = loader.load();
 

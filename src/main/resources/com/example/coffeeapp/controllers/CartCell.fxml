@@ -14,12 +14,12 @@
             <Image url="@../images/coldbrew.png" />
          </image>
       </ImageView>
-      <Label fx:id="beverageName" layoutX="17.0" layoutY="21.0" prefHeight="31.0" prefWidth="217.0" text="Label" />
-      <Label fx:id="beveragePrice" layoutX="479.0" layoutY="24.0" text="Label" />
-      <Label layoutX="136.0" layoutY="116.0" text="Dairy:" />
-      <Label fx:id="milkLabel" layoutX="197.0" layoutY="116.0" text="Label" />
-      <Label layoutX="136.0" layoutY="78.0" text="Size:" />
-      <Label fx:id="sizeLabel" layoutX="184.0" layoutY="78.0" text="Label" />
+      <Label fx:id="beverageName" layoutX="17.0" layoutY="21.0" prefHeight="31.0" prefWidth="217.0" text="Label" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="316.0" AnchorPane.topAnchor="21.0" />
+      <Label fx:id="beveragePrice" layoutX="479.0" layoutY="24.0" text="Label" AnchorPane.leftAnchor="479.0" AnchorPane.topAnchor="24.0" />
+      <Label layoutX="136.0" layoutY="116.0" text="Dairy:" AnchorPane.leftAnchor="136.0" AnchorPane.topAnchor="116.0" />
+      <Label fx:id="milkLabel" layoutX="197.0" layoutY="116.0" text="Label" AnchorPane.leftAnchor="197.0" />
+      <Label layoutX="136.0" layoutY="78.0" text="Size:" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="78.0" />
+      <Label fx:id="sizeLabel" layoutX="184.0" layoutY="78.0" text="Label" AnchorPane.leftAnchor="184.0" />
       <Separator layoutX="449.0" layoutY="27.0" orientation="VERTICAL" prefHeight="150.0" />
       <Button fx:id="addButton" layoutX="484.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#DuplicateBeverageEvent">
          <graphic>
@@ -38,7 +38,7 @@
             </ImageView>
          </graphic></Button>
       <Button fx:id="editButton" layoutX="484.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#EditBeverageEvent" text="edit" />
-      <Label layoutX="315.0" layoutY="40.0" text="Flavors" />
+      <Label layoutX="315.0" layoutY="40.0" text="Flavors" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="40.0" />
       <Label fx:id="flavorLabel" alignment="TOP_LEFT" layoutX="294.0" layoutY="68.0" prefHeight="120.0" prefWidth="145.0" text="Label" wrapText="true" />
    </children>
 </AnchorPane>
