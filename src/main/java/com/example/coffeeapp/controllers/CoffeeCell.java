@@ -3,14 +3,15 @@ package com.example.coffeeapp.controllers;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class CoffeeCell extends ListCell<CoffeeModel> {
 
@@ -18,35 +19,20 @@ public class CoffeeCell extends ListCell<CoffeeModel> {
     private AnchorPane base;
 
     @FXML
-    private Label beverageName;
+    private Label beverageName, beveragePrice, flavorLabel, milkLabel, sizeLabel;
 
     @FXML
     private ImageView coffeeImage;
 
     @FXML
-    private Label flavorLabel;
+    private Button favBtn;
 
-    @FXML
-    private ImageView heartPic;
+    private UUID itemID;
 
-    @FXML
-    private Label milkLabel;
-
-    @FXML
-    private Label sizeLabel;
-
-    @FXML
-    private boolean heart = false;
-
-    @FXML
-    void heartClicked(MouseEvent event) {
-
-        if (!heart){
-            heartPic.setImage(new Image("@../images/redHeart.png"));
-        } else if (heart){
-            heartPic.setImage(new Image("@../images/openHeart.png"));
-        }
+    public CoffeeCell() {
+        loadFXML();
     }
+
     private void loadFXML() {
         try {
             FXMLLoader loader = new FXMLLoader(CartCell.class.getResource("CoffeeCell.fxml"));
@@ -66,15 +52,16 @@ public class CoffeeCell extends ListCell<CoffeeModel> {
             setText(null);
             setGraphic(null);
         } else {
-            //itemID = beverage.getItemID();
+            itemID = beverage.getItemID();
             beverageName.setText(beverage.getName());
             milkLabel.setText(beverage.getMilk().getDairy());
             flavorLabel.setText(beverage.getFlavors().toString().toLowerCase());
-            //beveragePrice.setText("$"+beverage.getPrice());
+            beveragePrice.setText("$"+beverage.getPrice());
             sizeLabel.setText(beverage.getSize().getVal());
             coffeeImage.setImage(new Image(beverage.getImage()));
             setGraphic(base);
         }
     }
+
 
 }

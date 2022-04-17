@@ -8,9 +8,8 @@ import javafx.util.Callback;
 public class CoffeeCellFactory implements Callback<ListView<CoffeeModel>, ListCell<CoffeeModel>> {
 
     @Override
-    public ListCell<CoffeeModel> call(ListView<CoffeeModel> param) {
+    public ListCell<CoffeeModel> call(ListView<CoffeeModel> coffeeModelListView) {
         return new CoffeeCell();
     }
-
 
 }
