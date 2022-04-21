@@ -16,15 +16,19 @@ import java.util.UUID;
  * CartManager allows for ease of communication between different scenes needing data from the cart.
  * @author Hunter
  */
-public class CartManager implements Subject {
+public class CoffeeManager implements Subject {
 
-    private volatile static CartManager instance = null;
-    private static ObservableList<CoffeeModel> _currentOrder;
+    private volatile static CoffeeManager instance = null;
+    private static ObservableList<CoffeeModel> cartLIST;
+    private static ObservableList<CoffeeModel> favLIST;
+    private static ObservableList<CoffeeModel> recentLIST;
     private static CoffeeModel currentItem;
     private static ObservableList<CoffeeModel> currentItemList;
     private List<Observer> observers;
-    private CartManager() {
-        _currentOrder = FXCollections.observableArrayList();
+    private CoffeeManager() {
+        cartLIST = FXCollections.observableArrayList();
+        favLIST = FXCollections.observableArrayList();
+        recentLIST = FXCollections.observableArrayList();
         currentItemList = FXCollections.observableArrayList();
         observers = new ArrayList<>();
     }
@@ -33,11 +37,11 @@ public class CartManager implements Subject {
      * Method for getting the CartManager object.
      * @return instance of the CartManager class.
      */
-    public static CartManager GetInstance() {
+    public static CoffeeManager getInstance() {
         if (instance == null) {
-            synchronized (CartManager.class) {
+            synchronized (CoffeeManager.class) {
                 if (instance == null) {
-                    instance = new CartManager();
+                    instance = new CoffeeManager();
                 }
             }
         }
@@ -48,22 +52,30 @@ public class CartManager implements Subject {
      * Method which allows for safe adding to the current order.
      * @param toAdd
      */
-    public void AddBeverage(CoffeeModel toAdd) {
-        _currentOrder.add(toAdd);
+    public void addBeverageCart(CoffeeModel toAdd) {
+        cartLIST.add(toAdd);
         notifyObservers();
+    }
+
+    public void addBeverageFav(CoffeeModel toAdd) {
+        favLIST.add(toAdd);
     }
 
     /**
      * Method to remove specified CoffeeModel item from the current order.
      * @param toRemove
      */
-    public void RemoveBeverage(CoffeeModel toRemove) {
-        if (_currentOrder.contains(toRemove)) _currentOrder.remove(toRemove);;
+    public void removeBeverageCart(CoffeeModel toRemove) {
+        if (cartLIST.contains(toRemove)) cartLIST.remove(toRemove);;
         notifyObservers();
     }
 
-    public CoffeeModel GetBeverage(UUID beverageID) {
-        for (CoffeeModel e : _currentOrder) {
+    public void removeBeverageFav(CoffeeModel toRemove) {
+        if (favLIST.contains(toRemove)) favLIST.remove(toRemove);
+    }
+
+    public CoffeeModel getBeverageCart(UUID beverageID) {
+        for (CoffeeModel e : cartLIST) {
             if (e.getItemID().equals(beverageID)) return e;
         }
         return null;
@@ -72,16 +84,16 @@ public class CartManager implements Subject {
     /**
      * Method to clear the current order.
      */
-    public void EmptyCart() {
-        _currentOrder.clear();
+    public void emptyCart() {
+        cartLIST.clear();
     }
 
     /**
      * Check if the cart of the current order is empty or populated.
      * @return boolean value depending on if cart is empty or not.
      */
-    public boolean IsEmpty() {
-        return _currentOrder.size() == 0;
+    public boolean isEmptyCart() {
+        return cartLIST.size() == 0;
     }
 
     /**
@@ -89,9 +101,9 @@ public class CartManager implements Subject {
      * order.
      * @return String that represents the aggregate of entire cart.
      */
-    public BigDecimal GetCartTotal() {
+    public BigDecimal getTotalCart() {
         BigDecimal cartTotal = BigDecimal.ZERO;
-        for (CoffeeModel c : _currentOrder) {
+        for (CoffeeModel c : cartLIST) {
             cartTotal = cartTotal.add(c.getPrice());
         }
         return cartTotal;
@@ -101,26 +113,30 @@ public class CartManager implements Subject {
      * Method for allowing binding of the underlying ObservableList (which represents the current orders cart) to ListViews.
      * @return Returns the current orders cart as a reference.
      */
-    public ObservableList<CoffeeModel> GetCartItems() {
-        return _currentOrder;
+    public ObservableList<CoffeeModel> getItemsCart() {
+        return cartLIST;
+    }
+
+    public ObservableList<CoffeeModel> getItemsFav() {
+        return favLIST;
     }
 
     /**
      * Method for specifying a CoffeeModel item. Mostly used for communication between certain pages.
      * @return Selected item.
      */
-    public CoffeeModel GetCurrentItem() {
+    public CoffeeModel getCurrentItem() {
         return currentItem;
     }
 
-    public ObservableList<CoffeeModel> GetCurrentItemList() {
+    public ObservableList<CoffeeModel> getCurrentItemList() {
         return currentItemList;
     }
     /**
      * Sets the specified CoffeeModel item to m.
      * @param m
      */
-    public void SetCurrentItem(CoffeeModel m) {
+    public void setCurrentItem(CoffeeModel m) {
         currentItemList.clear();
         currentItem = m;
         currentItemList.add(m);
@@ -139,7 +155,7 @@ public class CartManager implements Subject {
     @Override
     public void notifyObservers() {
         for (Observer o: observers) {
-            o.update(GetCartTotal());
+            o.update(getTotalCart());
         }
     }
 }

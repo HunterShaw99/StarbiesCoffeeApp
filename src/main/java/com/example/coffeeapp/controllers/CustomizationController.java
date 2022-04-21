@@ -1,6 +1,6 @@
 package com.example.coffeeapp.controllers;
 
-import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.CartAddTask;
 import javafx.application.Platform;
@@ -26,7 +26,7 @@ public class CustomizationController {
 
 
     public void initialize() {
-        customizeListView.setItems(CartManager.GetInstance().GetCurrentItemList());
+        customizeListView.setItems(CoffeeManager.getInstance().getCurrentItemList());
         customizeListView.setCellFactory(new CustomizeCellFactory());
     }
 

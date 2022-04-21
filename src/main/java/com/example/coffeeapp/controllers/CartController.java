@@ -1,10 +1,7 @@
 package com.example.coffeeapp.controllers;
 
-import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
-import com.example.coffeeapp.data.models.constants.Dairy;
-import com.example.coffeeapp.data.models.constants.Flavor;
-import com.example.coffeeapp.data.models.constants.Size;
 import com.example.coffeeapp.observer.Observer;
 import com.example.coffeeapp.tasks.ViewChangeTask;
 import javafx.application.Platform;
@@ -17,8 +14,6 @@ import javafx.scene.layout.Pane;
 
 
 import java.math.BigDecimal;
-
-import static com.example.coffeeapp.data.models.constants.CoffeePrice.MEDIUM_COST;
 
 public class CartController implements Observer {
 
@@ -39,10 +34,10 @@ public class CartController implements Observer {
     public void initialize() {
 
         if (init == 0) {
-            menuListView.setItems(CartManager.GetInstance().GetCartItems());
+            menuListView.setItems(CoffeeManager.getInstance().getItemsCart());
             menuListView.setCellFactory(new CartCellFactory());
             totalValueLabel.setText("$"+BigDecimal.ZERO);
-            CartManager.GetInstance().registerObserver(this);
+            CoffeeManager.getInstance().registerObserver(this);
             init++;
         }
     }

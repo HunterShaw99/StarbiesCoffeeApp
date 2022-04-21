@@ -1,6 +1,6 @@
 package com.example.coffeeapp.controllers;
 
-import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.DupBeverageTask;
 import com.example.coffeeapp.tasks.RemoveBeverageTask;
@@ -85,7 +85,7 @@ public class CartCell extends ListCell<CoffeeModel> {
 
     @FXML
     void EditBeverageEvent(MouseEvent event) throws IOException {
-        CartManager.GetInstance().SetCurrentItem(CartManager.GetInstance().GetBeverage(itemID));
+        CoffeeManager.getInstance().setCurrentItem(CoffeeManager.getInstance().getBeverageCart(itemID));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("customization-view.fxml"));
         Parent root = loader.load();
 

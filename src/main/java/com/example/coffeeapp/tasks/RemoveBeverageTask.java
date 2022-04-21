@@ -1,6 +1,6 @@
 package com.example.coffeeapp.tasks;
 
-import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.CoffeeManager;
 
 import java.util.UUID;
 
@@ -13,6 +13,6 @@ public class RemoveBeverageTask implements Runnable {
     }
     @Override
     public void run() {
-        CartManager.GetInstance().RemoveBeverage(CartManager.GetInstance().GetBeverage(itemID));
+        CoffeeManager.getInstance().removeBeverageCart(CoffeeManager.getInstance().getBeverageCart(itemID));
     }
 }

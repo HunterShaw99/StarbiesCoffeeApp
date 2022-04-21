@@ -1,7 +1,7 @@
 package com.example.coffeeapp.controllers;
 
 
-import com.example.coffeeapp.data.FavManager;
+import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.observer.Observer;
 import com.example.coffeeapp.tasks.ViewChangeTask;
@@ -36,7 +36,7 @@ public class FavController implements Observer{
     public void initialize() {
 
         if (init == 0){
-            favListView.setItems(FavManager.GetInstance().GetFavItems());
+            favListView.setItems(CoffeeManager.getInstance().getItemsFav());
             favListView.setCellFactory(new CoffeeCellFactory());
             //FavManager.GetInstance().registerObserver(this);
             init++;

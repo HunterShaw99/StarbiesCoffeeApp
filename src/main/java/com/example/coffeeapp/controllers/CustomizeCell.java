@@ -1,6 +1,6 @@
 package com.example.coffeeapp.controllers;
 
-import com.example.coffeeapp.data.CartManager;
+import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.data.models.constants.CoffeePrice;
 import com.example.coffeeapp.data.models.constants.Dairy;
@@ -94,30 +94,30 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
 
     private void setDefaultDiary() {
         noDairyLabel.setSelected(true);
-        CartManager.GetInstance().GetCurrentItem().setMilk(Dairy.NONE);
+        CoffeeManager.getInstance().getCurrentItem().setMilk(Dairy.NONE);
     }
 
     private void setDefaultSize() {
         mediumLabel.setSelected(true);
-        CartManager.GetInstance().GetCurrentItem().setSize(Size.MEDIUM);
+        CoffeeManager.getInstance().getCurrentItem().setSize(Size.MEDIUM);
     }
 
     @FXML
     void setSizeEvent(MouseEvent event) {
         RadioButton r = (RadioButton)event.getSource();
-        CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().subtract(CoffeePrice.MEDIUM_COST));
+        CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().subtract(CoffeePrice.MEDIUM_COST));
         switch (r.getId()) {
             case "smallLabel":
-                CartManager.GetInstance().GetCurrentItem().setSize(Size.SMALL);
-                CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.SMALL_COST));
+                CoffeeManager.getInstance().getCurrentItem().setSize(Size.SMALL);
+                CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().add(CoffeePrice.SMALL_COST));
                 break;
             case "mediumLabel":
-                CartManager.GetInstance().GetCurrentItem().setSize(Size.MEDIUM);
-                CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.MEDIUM_COST));
+                CoffeeManager.getInstance().getCurrentItem().setSize(Size.MEDIUM);
+                CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().add(CoffeePrice.MEDIUM_COST));
                 break;
             case "largeLabel":
-                CartManager.GetInstance().GetCurrentItem().setSize(Size.LARGE);
-                CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.LARGE_COST));
+                CoffeeManager.getInstance().getCurrentItem().setSize(Size.LARGE);
+                CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().add(CoffeePrice.LARGE_COST));
                 break;
         }
     }
@@ -186,47 +186,47 @@ public class CustomizeCell extends ListCell<CoffeeModel> {
             if (cb.isSelected()) {
                 switch (cb.getId()) {
                     case "caramelCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.CARAMEL);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.CARAMEL);
                         break;
                     case "mochaCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.MOCHA);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.MOCHA);
                         break;
                     case "vanillaCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.VANILLA);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.VANILLA);
                         break;
                     case "pumpkinCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.PUMPKIN_SPICE);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.PUMPKIN_SPICE);
                         break;
                     case "hazelnutCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.HAZELNUT);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.HAZELNUT);
                         break;
                     case "coconutCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().addFlavor(Flavor.COCONUT);
+                        CoffeeManager.getInstance().getCurrentItem().addFlavor(Flavor.COCONUT);
                         break;
                 }
-                CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().add(CoffeePrice.FLAVOR_COST));
+                CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().add(CoffeePrice.FLAVOR_COST));
             } else {
                 switch (cb.getId()) {
                     case "caramelCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.CARAMEL);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.CARAMEL);
                         break;
                     case "mochaCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.MOCHA);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.MOCHA);
                         break;
                     case "vanillaCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.VANILLA);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.VANILLA);
                         break;
                     case "pumpkinCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.PUMPKIN_SPICE);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.PUMPKIN_SPICE);
                         break;
                     case "hazelnutCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.HAZELNUT);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.HAZELNUT);
                         break;
                     case "coconutCheckBox":
-                        CartManager.GetInstance().GetCurrentItem().removeFlavor(Flavor.COCONUT);
+                        CoffeeManager.getInstance().getCurrentItem().removeFlavor(Flavor.COCONUT);
                         break;
                 }
-                CartManager.GetInstance().GetCurrentItem().setPrice(CartManager.GetInstance().GetCurrentItem().getPrice().subtract(CoffeePrice.FLAVOR_COST));
+                CoffeeManager.getInstance().getCurrentItem().setPrice(CoffeeManager.getInstance().getCurrentItem().getPrice().subtract(CoffeePrice.FLAVOR_COST));
             }
         };
         cb.setOnAction(event);
