@@ -3,7 +3,9 @@ package com.example.coffeeapp.controllers;
 import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.DupBeverageTask;
+import com.example.coffeeapp.tasks.FavAddTask;
 import com.example.coffeeapp.tasks.RemoveBeverageTask;
+import com.example.coffeeapp.utility.ImageUrl;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,10 +33,10 @@ public class CartCell extends ListCell<CoffeeModel> {
     private Label beverageName, beveragePrice,milkLabel, sizeLabel, flavorLabel;
 
     @FXML
-    private Button addButton, removeButton, editButton;
+    private Button addButton, removeButton, editButton, favButton;
 
     @FXML
-    private ImageView coffeeImage;
+    private ImageView coffeeImage, favImage;
 
     private UUID itemID;
 
@@ -94,6 +96,12 @@ public class CartCell extends ListCell<CoffeeModel> {
 
         stage.setScene(scene);
         ControllerHandler.GetInstance().SetStage(stage);
+    }
+
+    @FXML
+    void favEvent(MouseEvent event) {
+        Platform.runLater(new FavAddTask(itemID));
+        favImage.setImage(new Image(ImageUrl.HEART));
     }
 
 

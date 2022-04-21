@@ -17,7 +17,5 @@ public class DupBeverageTask implements Runnable {
     public void run() {
         CoffeeModel m = new CoffeeModel(CoffeeManager.getInstance().getBeverageCart(toAdd));
         CoffeeManager.getInstance().addBeverageCart(m);
-        System.out.println(m);
-        m = null;
     }
 }

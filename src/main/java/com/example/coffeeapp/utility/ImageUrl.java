@@ -14,4 +14,6 @@ public abstract class ImageUrl {
     public static final String LATTE = "file:src/main/resources/com/example/coffeeapp/images/latte.png";
     public static final String COFFEE = "file:src/main/resources/com/example/coffeeapp/images/regCoffee.png";
     public static final String SHOT = "file:src/main/resources/com/example/coffeeapp/images/shot.png";
+    public static final String EMPTY_HEART = "file:src/main/resources/com/example/coffeeapp/images/heart-icon.png";
+    public static final String HEART = "file:src/main/resources/com/example/coffeeapp/images/redHeart.png";
 }
