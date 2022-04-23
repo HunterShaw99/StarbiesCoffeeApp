@@ -3,8 +3,6 @@ package com.example.coffeeapp.controllers;
 import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.observer.Observer;
-import com.example.coffeeapp.tasks.FavAddTask;
-import com.example.coffeeapp.tasks.RecentsAddTask;
 import com.example.coffeeapp.tasks.ViewChangeTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -15,9 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public class CartController implements Observer {
 
@@ -79,7 +75,6 @@ public class CartController implements Observer {
         }
 
         CoffeeManager.getInstance().emptyCart();
-        totalValueLabel.setText("$"+BigDecimal.ZERO);
     }
 
 

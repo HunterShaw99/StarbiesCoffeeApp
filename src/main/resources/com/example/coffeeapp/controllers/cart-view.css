@@ -11,6 +11,11 @@
 .button {
     -fx-background-color: transparent;
 }
+#orderBtn {
+    -fx-font-family: 'Urbanist', sans-serif;
+    -fx-font-size: 22;
+    -fx-font-weight: 400;
+}
 #bottomHBox {
     -fx-background-color: #052615;
 }

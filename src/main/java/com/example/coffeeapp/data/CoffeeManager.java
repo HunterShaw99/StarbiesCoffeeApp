@@ -88,6 +88,7 @@ public class CoffeeManager implements Subject {
      */
     public void emptyCart() {
         cartLIST.clear();
+        notifyObservers();
     }
 
     /**
