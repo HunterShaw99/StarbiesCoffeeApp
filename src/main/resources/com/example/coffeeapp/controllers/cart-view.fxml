@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" stylesheets="@cart-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coffeeapp.controllers.CartController">
     <children>
@@ -52,8 +53,13 @@
                </graphic>
             </Button>
          </children></HBox>
-      <Label fx:id="totalLabel" layoutX="231.0" layoutY="673.0" text="Total" />
-      <Label fx:id="totalValueLabel" layoutX="300.0" layoutY="673.0" text="Label" />
+      <Label fx:id="totalLabel" layoutX="42.0" layoutY="670.0" text="Total" />
+      <Label fx:id="totalValueLabel" layoutX="115.0" layoutY="670.0" text="Label" />
       <Separator layoutY="646.0" prefWidth="600.0" />
+      <Button fx:id="orderBtn" layoutX="422.0" layoutY="660.0" mnemonicParsing="false" onMouseClicked="#OrderEvent" prefHeight="44.0" prefWidth="134.0" text="Place Order">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
     </children>
 </Pane>

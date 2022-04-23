@@ -61,6 +61,8 @@ public class CoffeeManager implements Subject {
         favLIST.add(toAdd);
     }
 
+    public void addBeverageRecents(CoffeeModel toAdd){recentLIST.add(toAdd);}
+
     /**
      * Method to remove specified CoffeeModel item from the current order.
      * @param toRemove
@@ -120,6 +122,8 @@ public class CoffeeManager implements Subject {
     public ObservableList<CoffeeModel> getItemsFav() {
         return favLIST;
     }
+
+    public ObservableList<CoffeeModel> getRecentLIST() {return recentLIST;}
 
     /**
      * Method for specifying a CoffeeModel item. Mostly used for communication between certain pages.

@@ -4,6 +4,7 @@ import com.example.coffeeapp.data.CoffeeManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.DupBeverageTask;
 import com.example.coffeeapp.tasks.FavAddTask;
+import com.example.coffeeapp.tasks.RecentsAddTask;
 import com.example.coffeeapp.tasks.RemoveBeverageTask;
 import com.example.coffeeapp.utility.ImageUrl;
 import javafx.application.Platform;

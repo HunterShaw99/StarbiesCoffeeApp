@@ -1,5 +1,7 @@
 package com.example.coffeeapp.controllers;
 
+import com.example.coffeeapp.data.CoffeeManager;
+import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.tasks.ViewChangeTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -19,12 +21,21 @@ public class OrderHistoryController {
     private Label historyLabel;
 
     @FXML
-    private ListView<?> historyListView;
+    private ListView<CoffeeModel> historyListView;
 
     @FXML
     private Pane historyPane;
 
+    private byte init = 0;
+
     public void initialize() {
+
+        if (init == 0){
+            historyListView.setItems(CoffeeManager.getInstance().getRecentLIST());
+            historyListView.setCellFactory(new CoffeeCellFactory());
+            init++;
+
+        }
 
     }
 
