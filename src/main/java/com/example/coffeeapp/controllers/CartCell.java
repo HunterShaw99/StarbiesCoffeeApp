@@ -34,10 +34,13 @@ public class CartCell extends ListCell<CoffeeModel> {
     private Label beverageName, beveragePrice,milkLabel, sizeLabel, flavorLabel;
 
     @FXML
-    private Button addButton, removeButton, editButton, favButton;
+    private Button addButton, removeButton, editButton;
+
+
 
     @FXML
-    private ImageView coffeeImage, favImage;
+    private ImageView coffeeImage;
+
 
     private UUID itemID;
 
@@ -97,12 +100,6 @@ public class CartCell extends ListCell<CoffeeModel> {
 
         stage.setScene(scene);
         ControllerHandler.GetInstance().SetStage(stage);
-    }
-
-    @FXML
-    void favEvent(MouseEvent event) {
-        Platform.runLater(new FavAddTask(itemID));
-        favImage.setImage(new Image(ImageUrl.HEART));
     }
 
 

@@ -23,6 +23,7 @@ public class CoffeeModel implements Serializable {
     private List<Flavor> flavors;
     private BigDecimal price;
     private String image;
+    private String redHeart;
 
     public CoffeeModel() {
         itemID = UUID.randomUUID();
@@ -45,6 +46,7 @@ public class CoffeeModel implements Serializable {
         this.milk = m.getMilk();
         this.size = m.getSize();
         this.name = m.getName();
+        this.redHeart = m.redHeart;
     }
 
     public UUID getItemID() {
@@ -109,4 +111,8 @@ public class CoffeeModel implements Serializable {
     }
 
     public void setImage(String image){this.image = image;}
+
+    public String getRedHeart(){return redHeart;}
+
+    public void setRedHeart(String bool){this.redHeart = bool;}
 }

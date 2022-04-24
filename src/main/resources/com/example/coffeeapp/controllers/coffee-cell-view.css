@@ -8,6 +8,10 @@
     -fx-font-size: 18;
     -fx-font-weight: 400;
 }
+#favPic{
+    -fx-background-color: transparent;
+}
+
 #beverageName {
     -fx-font-family: 'Urbanist', sans-serif;
     -fx-font-size: 26;

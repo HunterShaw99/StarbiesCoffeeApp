@@ -13,10 +13,13 @@
     -fx-font-size: 26;
     -fx-font-weight: 700;
 }
+
+
 .button {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
+
 #coffeeImage {
     -fx-effect: dropshadow(three-pass-box, #1f0f04, 10, .07, 0.5,0.5);
 }

@@ -58,10 +58,14 @@ public class CoffeeManager implements Subject {
     }
 
     public void addBeverageFav(CoffeeModel toAdd) {
+        toAdd.setRedHeart("True");
         favLIST.add(toAdd);
     }
 
-    public void addBeverageRecents(CoffeeModel toAdd){recentLIST.add(toAdd);}
+    public void addBeverageRecents(CoffeeModel toAdd){
+        toAdd.setRedHeart("False");
+        recentLIST.add(toAdd);
+    }
 
     /**
      * Method to remove specified CoffeeModel item from the current order.
@@ -72,12 +76,31 @@ public class CoffeeManager implements Subject {
         notifyObservers();
     }
 
+    public void removeBeverageFavs(CoffeeModel toRemove) {
+        if (favLIST.contains(toRemove)) favLIST.remove(toRemove);;
+        notifyObservers();
+    }
+
     public void removeBeverageFav(CoffeeModel toRemove) {
         if (favLIST.contains(toRemove)) favLIST.remove(toRemove);
     }
 
     public CoffeeModel getBeverageCart(UUID beverageID) {
         for (CoffeeModel e : cartLIST) {
+            if (e.getItemID().equals(beverageID)) return e;
+        }
+        return null;
+    }
+
+    public CoffeeModel getBeverageFavs(UUID beverageID) {
+        for (CoffeeModel e : favLIST) {
+            if (e.getItemID().equals(beverageID)) return e;
+        }
+        return null;
+    }
+
+    public CoffeeModel getBeverageRecents(UUID beverageID) {
+        for (CoffeeModel e : recentLIST) {
             if (e.getItemID().equals(beverageID)) return e;
         }
         return null;
