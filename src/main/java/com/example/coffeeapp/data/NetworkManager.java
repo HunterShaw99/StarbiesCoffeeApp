@@ -19,14 +19,14 @@ public class NetworkManager {
 
     private volatile static Socket client;
 
-    private Object data[];
+    private CoffeeData data[];
 
     private static ObjectInputStream oiStream;
     private static ObjectOutputStream ooStream;
 
     private NetworkManager() {
         //Sets a Object array to size 2, in case we want to keep things simple and just use this for data transfer
-        data = new Object[2];
+        data = new CoffeeData[2];
     }
 
     public void displayArray(){
@@ -49,12 +49,14 @@ public class NetworkManager {
 
     private void setOiStream() throws IOException, ClassNotFoundException {
         oiStream = new ObjectInputStream(client.getInputStream());
-
     }
 
     public void recieveData() throws IOException, ClassNotFoundException {
-        CoffeeData data = (CoffeeData) oiStream.readObject();
-        getData(data);
+
+        data = (CoffeeData[]) oiStream.readObject();;
+        System.out.println(data[0]);
+        System.out.println(data[1]);
+
 
     }
     public void getData(CoffeeData d) throws IOException, ClassNotFoundException {
@@ -71,7 +73,6 @@ public class NetworkManager {
 
     private void setOoStream() throws IOException {
         ooStream = new ObjectOutputStream(client.getOutputStream());
-        //ooStream.writeObject("Hello, Server");
 
     }
 

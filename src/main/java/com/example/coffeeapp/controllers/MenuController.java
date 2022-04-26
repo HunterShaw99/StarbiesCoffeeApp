@@ -77,11 +77,14 @@ public class MenuController {
 
     @FXML
     void LogoutEvent(MouseEvent event) throws IOException, ClassNotFoundException {
+
         NetworkManager.getInstance().sendFavData();
         NetworkManager.getInstance().sendRecentData();
         NetworkManager.getInstance().recieveData();
         NetworkManager.getInstance().displayArray();
+        NetworkManager.getInstance().recieveData();
         Platform.runLater(new ViewChangeTask(4));
+
 
     }
 
