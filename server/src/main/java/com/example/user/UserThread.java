@@ -29,8 +29,11 @@ public class UserThread extends Thread implements Serializable {
         data = new CoffeeData[2];
     }
 
-    public void sendData() throws IOException {
+    public void sendFav() throws IOException {
         userOutputStream.writeObject(data[0]);
+
+    }
+    public void sendRecent() throws IOException{
         userOutputStream.writeObject(data[1]);
     }
 
@@ -65,6 +68,8 @@ public class UserThread extends Thread implements Serializable {
                 d = (CoffeeData) userInputStream.readObject();
                 getData(d);
                 System.out.println(d.toString());
+                sendFav();
+                sendRecent();
             }
             catch (ClassNotFoundException e)  {
                 System.out.println("Error receiving message....shutting down");

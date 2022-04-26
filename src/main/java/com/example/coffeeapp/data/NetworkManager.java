@@ -29,6 +29,13 @@ public class NetworkManager {
         data = new Object[2];
     }
 
+    public void displayArray(){
+        System.out.println("Favs: " + data[0]);
+        System.out.println("Recents " + data[1]);
+
+
+    }
+
     public static NetworkManager getInstance() {
         if (instance == null) {
             synchronized (CoffeeManager.class) {
@@ -42,8 +49,24 @@ public class NetworkManager {
 
     private void setOiStream() throws IOException, ClassNotFoundException {
         oiStream = new ObjectInputStream(client.getInputStream());
-        //String x = (String)oiStream.readObject();
-        //System.out.println(x);
+
+    }
+
+    public void recieveData() throws IOException, ClassNotFoundException {
+        CoffeeData data = (CoffeeData) oiStream.readObject();
+        getData(data);
+
+    }
+    public void getData(CoffeeData d) throws IOException, ClassNotFoundException {
+        if (d.isFav) {
+            data[0] = d;
+        }
+        else {
+            data[1] = d;
+        }
+
+
+
     }
 
     private void setOoStream() throws IOException {
