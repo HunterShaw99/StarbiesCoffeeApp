@@ -1,5 +1,7 @@
 package com.example.coffeeapp.data;
 
+import com.example.coffeeapp.data.models.CoffeeModel;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -41,13 +43,19 @@ public class NetworkManager {
 
     private void setOoStream() throws IOException {
         ooStream = new ObjectOutputStream(client.getOutputStream());
+        //ooStream.writeObject("Hello, Server");
+        CoffeeModel cf = new CoffeeModel(CoffeeManager.getInstance().getRecentLIST().get(0));
+        System.out.println("Writing coffemodel " + cf);
+        System.out.println(cf.getClass());
+        ooStream.writeObject(cf);
     }
 
     public void setClient(Socket client) throws IOException, ClassNotFoundException {
         this.client = client;
         System.out.println("Set Client to "+ this.client);
-        setOiStream(); //Set the ObjectInput stream
         setOoStream(); //Set the ObjectOutput stream
+        setOiStream(); //Set the ObjectInput stream
+
     }
 
     public void closeConnection() throws IOException {

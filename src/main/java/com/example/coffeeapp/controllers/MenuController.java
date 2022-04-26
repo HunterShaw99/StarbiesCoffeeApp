@@ -22,6 +22,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 
 
 public class MenuController {
@@ -48,6 +50,7 @@ public class MenuController {
     private Scene scene;
     private Parent root;
     private Stage stage;
+    static final int port = 5001;
 
     public void initialize() {
 
@@ -73,9 +76,16 @@ public class MenuController {
 
 
     @FXML
-    void LogoutEvent(MouseEvent event) throws IOException {
-        NetworkManager.getInstance().closeConnection();
+    void LogoutEvent(MouseEvent event) throws IOException, ClassNotFoundException {
+
         Platform.runLater(new ViewChangeTask(4));
+        InetAddress addr =
+                InetAddress.getByName("localhost");
+        System.out.println("Server address = " + addr);
+        // Set up socket on client side that connects to server
+        Socket socket = new Socket(addr, port);
+        System.out.println("Connected to socket: " + socket);
+        NetworkManager.getInstance().setClient(socket);
     }
 
     @FXML

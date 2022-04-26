@@ -59,6 +59,7 @@ public class CoffeeManager implements Subject {
 
     public void addBeverageFav(CoffeeModel toAdd) {
         toAdd.setRedHeart("True");
+        toAdd.setFavOrRec(1);
         favLIST.add(toAdd);
     }
 
