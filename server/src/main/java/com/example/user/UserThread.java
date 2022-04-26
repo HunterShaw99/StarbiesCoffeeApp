@@ -1,5 +1,6 @@
 package com.example.user;
 
+import com.example.coffeeapp.data.models.CoffeeData;
 import com.example.data.models.CoffeeModel;
 
 import java.io.IOException;
@@ -7,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.Socket;
-import java.util.List;
 
 public class UserThread extends Thread implements Serializable {
 
@@ -15,8 +15,7 @@ public class UserThread extends Thread implements Serializable {
     private ObjectInputStream userInputStream;
     private ObjectOutputStream userOutputStream;
 
-    private List<CoffeeModel> favLIST;
-    private List<CoffeeModel> recentLIST;
+    private CoffeeData[] data;
     private int userID;
     private String userName;
 
@@ -26,6 +25,24 @@ public class UserThread extends Thread implements Serializable {
         this.userName = userName;
         userInputStream = in;
         userOutputStream = new ObjectOutputStream(userSocket.getOutputStream());
+        userOutputStream.flush();
+        data = new CoffeeData[2];
+    }
+
+    public void sendData() throws IOException {
+        userOutputStream.writeObject(data[0]);
+        userOutputStream.writeObject(data[1]);
+    }
+
+    public void getData(CoffeeData d) throws IOException, ClassNotFoundException {
+        if (d.isFav) {
+            data[0] = d;
+        }
+        else {
+            data[1] = d;
+        }
+
+
     }
 
     public ObjectInputStream getUserInputStream() {
@@ -39,5 +56,27 @@ public class UserThread extends Thread implements Serializable {
     public int getUserID() {
         return userID;
     }
+
+    public void run() {
+        boolean alive = true;
+        while (alive) {
+             CoffeeData d = null;
+            try {
+                d = (CoffeeData) userInputStream.readObject();
+                getData(d);
+                System.out.println(d.toString());
+            }
+            catch (ClassNotFoundException e)  {
+                System.out.println("Error receiving message....shutting down");
+                alive =false;
+            }
+            catch (IOException e)
+            {
+                //System.out.println("No data");
+                //alive = false;
+            }
+        }
+    }
+
 }
 

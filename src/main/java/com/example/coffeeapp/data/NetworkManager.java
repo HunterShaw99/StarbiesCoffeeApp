@@ -42,8 +42,8 @@ public class NetworkManager {
 
     private void setOiStream() throws IOException, ClassNotFoundException {
         oiStream = new ObjectInputStream(client.getInputStream());
-        String x = (String)oiStream.readObject();
-        System.out.println(x);
+        //String x = (String)oiStream.readObject();
+        //System.out.println(x);
     }
 
     private void setOoStream() throws IOException {
@@ -60,7 +60,8 @@ public class NetworkManager {
     }
 
     public void sendRecentData() throws IOException {
-        CoffeeData recentsData = new RecentsData(CoffeeManager.getInstance().getRecentLIST());
+        List<CoffeeModel> e = new ArrayList<>(CoffeeManager.getInstance().getRecentLIST());
+        CoffeeData recentsData = new RecentsData(e);
         recentsData.isFav = false;
         ooStream.writeObject(recentsData);
     }

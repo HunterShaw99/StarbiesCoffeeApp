@@ -31,6 +31,8 @@ public class ServerNetwork {
 
                     System.out.println("Connection " + (++count) + " accepted "+
                             socket);
+                    UserThread t = new UserThread(socket, 1, "Client", new ObjectInputStream(socket.getInputStream()));
+                    t.start();
                     // In order to send a message to a client, the server needs an
                     // OutputStream from the socket. It then uses this to set up
                     // stream for communication.  In the client program, there is
@@ -38,17 +40,17 @@ public class ServerNetwork {
                     // If we wanted two-way communication we would also set up an
                     // input stream here and an output stream in the client.
                     // Use ObjectOutputStream for convenience
-                    oostream = new ObjectOutputStream(socket.getOutputStream());
+                    //oostream = new ObjectOutputStream(socket.getOutputStream());
 
-                    oostream.flush();  // to send header info to client
+                    //oostream.flush();  // to send header info to client
                     // Send messages to console and to client
-                    System.out.println("Sending message to client " + count);
-                    oostream.writeObject("Hello, client " + count);
+                    //System.out.println("Sending message to client " + count);
+                    //oostream.writeObject("Hello, client " + count);
 
-                    oistream = new ObjectInputStream(socket.getInputStream());
-                    Object x =  oistream.readObject();
+                    //oistream = new ObjectInputStream(socket.getInputStream());
+                    //Object x =  oistream.readObject();
                     //CoffeeModel x = new CoffeeModel();
-                    System.out.println("Reading from client: " + x.toString());
+                    //System.out.println("Reading from client: " + x.toString());
 
                 }
                 catch( Exception e) {
