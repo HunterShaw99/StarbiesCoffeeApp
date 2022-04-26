@@ -51,6 +51,7 @@ public class NetworkManager {
     }
 
     public void closeConnection() throws IOException {
+        System.out.println("Closing client "+ this.client);
         client.close();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.coffeeapp.controllers;
 
 import com.example.coffeeapp.data.CoffeeManager;
+import com.example.coffeeapp.data.NetworkManager;
 import com.example.coffeeapp.data.models.CoffeeModel;
 import com.example.coffeeapp.data.models.constants.CoffeePrice;
 import com.example.coffeeapp.tasks.ViewChangeTask;
@@ -72,7 +73,8 @@ public class MenuController {
 
 
     @FXML
-    void LogoutEvent(MouseEvent event) {
+    void LogoutEvent(MouseEvent event) throws IOException {
+        NetworkManager.getInstance().closeConnection();
         Platform.runLater(new ViewChangeTask(4));
     }
 
