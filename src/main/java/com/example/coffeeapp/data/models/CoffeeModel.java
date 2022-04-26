@@ -24,13 +24,11 @@ public class CoffeeModel implements Serializable {
     private BigDecimal price;
     private String image;
     private String redHeart;
-    private int favOrRec;
 
     public CoffeeModel() {
         itemID = UUID.randomUUID();
         this.price = BigDecimal.ZERO;
         this.flavors = new ArrayList<Flavor>(8);
-        favOrRec = 0;
     }
 
     public CoffeeModel(String imageURL, BigDecimal price) {
@@ -49,7 +47,6 @@ public class CoffeeModel implements Serializable {
         this.size = m.getSize();
         this.name = m.getName();
         this.redHeart = m.redHeart;
-        this.favOrRec = m.favOrRec;
     }
 
     public UUID getItemID() {
@@ -63,10 +60,6 @@ public class CoffeeModel implements Serializable {
     public String toString() {
         return name+" Price:"+price.toString()+" Flavors:"+flavors.toString()+"ID"+itemID+"Size"+size+"MILK"+milk;
     }
-
-    public void setFavOrRec(int x) {this.favOrRec = x;}
-
-    public int getFavOrRec(){return favOrRec;}
 
     public void setName(String name) {
         this.name = name;

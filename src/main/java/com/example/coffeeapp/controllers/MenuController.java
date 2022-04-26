@@ -50,7 +50,7 @@ public class MenuController {
     private Scene scene;
     private Parent root;
     private Stage stage;
-    static final int port = 5001;
+
 
     public void initialize() {
 
@@ -76,16 +76,11 @@ public class MenuController {
 
 
     @FXML
-    void LogoutEvent(MouseEvent event) throws IOException, ClassNotFoundException {
-
+    void LogoutEvent(MouseEvent event) throws IOException {
+        NetworkManager.getInstance().sendFavData();
+        NetworkManager.getInstance().sendRecentData();
         Platform.runLater(new ViewChangeTask(4));
-        InetAddress addr =
-                InetAddress.getByName("localhost");
-        System.out.println("Server address = " + addr);
-        // Set up socket on client side that connects to server
-        Socket socket = new Socket(addr, port);
-        System.out.println("Connected to socket: " + socket);
-        NetworkManager.getInstance().setClient(socket);
+
     }
 
     @FXML

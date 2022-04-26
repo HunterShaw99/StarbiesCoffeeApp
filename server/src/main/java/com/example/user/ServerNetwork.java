@@ -46,9 +46,9 @@ public class ServerNetwork {
                     oostream.writeObject("Hello, client " + count);
 
                     oistream = new ObjectInputStream(socket.getInputStream());
-                    CoffeeModel x =  (CoffeeModel) oistream.readObject();
+                    Object x =  oistream.readObject();
                     //CoffeeModel x = new CoffeeModel();
-                    System.out.println("Reading from client: " + x);
+                    System.out.println("Reading from client: " + x.toString());
 
                 }
                 catch( Exception e) {

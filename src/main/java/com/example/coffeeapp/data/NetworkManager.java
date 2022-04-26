@@ -1,11 +1,16 @@
 package com.example.coffeeapp.data;
 
+import com.example.coffeeapp.data.models.CoffeeData;
 import com.example.coffeeapp.data.models.CoffeeModel;
+import com.example.coffeeapp.data.models.FavData;
+import com.example.coffeeapp.data.models.RecentsData;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NetworkManager {
 
@@ -44,10 +49,20 @@ public class NetworkManager {
     private void setOoStream() throws IOException {
         ooStream = new ObjectOutputStream(client.getOutputStream());
         //ooStream.writeObject("Hello, Server");
-        CoffeeModel cf = new CoffeeModel(CoffeeManager.getInstance().getRecentLIST().get(0));
-        System.out.println("Writing coffemodel " + cf);
-        System.out.println(cf.getClass());
-        ooStream.writeObject(cf);
+
+    }
+
+    public void sendFavData() throws IOException {
+        List<CoffeeModel> e = new ArrayList<>(CoffeeManager.getInstance().getItemsFav());
+        CoffeeData recentsData = new FavData(e);
+        recentsData.isFav = true;
+        ooStream.writeObject(recentsData);
+    }
+
+    public void sendRecentData() throws IOException {
+        CoffeeData recentsData = new RecentsData(CoffeeManager.getInstance().getRecentLIST());
+        recentsData.isFav = false;
+        ooStream.writeObject(recentsData);
     }
 
     public void setClient(Socket client) throws IOException, ClassNotFoundException {
