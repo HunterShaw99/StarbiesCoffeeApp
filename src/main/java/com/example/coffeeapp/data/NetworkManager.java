@@ -33,19 +33,19 @@ public class NetworkManager {
         return instance;
     }
 
-    private void setOiStream() throws IOException {
+    private void setOiStream() throws IOException, ClassNotFoundException {
         oiStream = new ObjectInputStream(client.getInputStream());
+        String x = (String)oiStream.readObject();
+        System.out.println(x);
     }
 
     private void setOoStream() throws IOException {
         ooStream = new ObjectOutputStream(client.getOutputStream());
     }
 
-    public void setClient(Socket client) throws IOException {
+    public void setClient(Socket client) throws IOException, ClassNotFoundException {
         this.client = client;
         System.out.println("Set Client to "+ this.client);
-        //Could have potentially swapped these around. Might be that the oiStream has to be clients outputstream
-        // and ooStream has to be connected to the client.getInputStream.
         setOiStream(); //Set the ObjectInput stream
         setOoStream(); //Set the ObjectOutput stream
     }

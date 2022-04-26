@@ -15,7 +15,7 @@ public class CoffeeApp extends Application {
 
     static final int port = 5001;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ClassNotFoundException {
         InetAddress addr =
                 InetAddress.getByName("localhost");
         System.out.println("Server address = " + addr);
