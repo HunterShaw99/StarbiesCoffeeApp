@@ -82,7 +82,7 @@ public class MenuController {
         NetworkManager.getInstance().sendRecentData();
         NetworkManager.getInstance().recieveData();
         NetworkManager.getInstance().displayArray();
-        NetworkManager.getInstance().recieveData();
+        //NetworkManager.getInstance().recieveData();
         Platform.runLater(new ViewChangeTask(4));
 
 

@@ -1,6 +1,8 @@
 package com.example.user;
 
 import com.example.coffeeapp.data.models.CoffeeData;
+import com.example.coffeeapp.data.models.FavData;
+import com.example.coffeeapp.data.models.RecentsData;
 import com.example.data.models.CoffeeModel;
 
 import java.io.IOException;
@@ -39,9 +41,11 @@ public class UserThread extends Thread implements Serializable {
     public void getData(CoffeeData d) throws IOException, ClassNotFoundException {
         if (d.isFav) {
             data[0] = d;
+            System.out.println(((FavData)data[0]).getFavs());
         }
         else {
             data[1] = d;
+            System.out.println(((RecentsData)data[1]).getRecents());
         }
 
 
@@ -67,6 +71,7 @@ public class UserThread extends Thread implements Serializable {
                 d = (CoffeeData) userInputStream.readObject();
                 getData(d);
                 if(d.isFav == false) sendFav();
+
                 //sendRecent();
                 userOutputStream.flush();
             }

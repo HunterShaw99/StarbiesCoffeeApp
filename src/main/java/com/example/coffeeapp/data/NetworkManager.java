@@ -30,8 +30,9 @@ public class NetworkManager {
     }
 
     public void displayArray(){
-        System.out.println("Favs: " + data[0]);
-        System.out.println("Recents " + data[1]);
+
+        System.out.println("Favs: " + ((FavData)data[0]).getFavs());
+        System.out.println("Recents " + ((RecentsData)data[1]).getRecents());
 
 
     }
@@ -54,8 +55,7 @@ public class NetworkManager {
     public void recieveData() throws IOException, ClassNotFoundException {
 
         data = (CoffeeData[]) oiStream.readObject();;
-        System.out.println(data[0]);
-        System.out.println(data[1]);
+
 
 
     }
