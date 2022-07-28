@@ -82,5 +82,6 @@ public class CartController implements Observer {
     public void update(BigDecimal total) {
         //Will update the cart total here when an item is added/removed in CartManager class
         totalValueLabel.setText("$"+total);
+        menuListView.refresh();
     }
 }
