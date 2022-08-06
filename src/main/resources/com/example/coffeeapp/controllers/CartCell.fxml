@@ -1,44 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="base" prefHeight="200.0" prefWidth="550.0" stylesheets="@cart-cell-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="base" prefHeight="200.0" prefWidth="550.0" stylesheets="@cart-cell-view.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="coffeeImage" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="436.0" AnchorPane.topAnchor="65.0">
-         <image>
-            <Image url="@../images/coldbrew.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="beverageName" layoutX="17.0" layoutY="21.0" prefHeight="31.0" prefWidth="217.0" text="Label" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="316.0" AnchorPane.topAnchor="21.0" />
-      <Label fx:id="beveragePrice" layoutX="476.0" layoutY="9.0" text="Label" AnchorPane.leftAnchor="476.0" AnchorPane.topAnchor="9.0" />
-      <Label layoutX="136.0" layoutY="116.0" text="Dairy:" AnchorPane.leftAnchor="136.0" AnchorPane.topAnchor="116.0" />
-      <Label fx:id="milkLabel" layoutX="197.0" layoutY="116.0" text="Label" AnchorPane.leftAnchor="197.0" />
-      <Label layoutX="136.0" layoutY="78.0" text="Size:" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="78.0" />
-      <Label fx:id="sizeLabel" layoutX="184.0" layoutY="78.0" text="Label" AnchorPane.leftAnchor="184.0" />
-      <Separator layoutX="449.0" layoutY="27.0" orientation="VERTICAL" prefHeight="150.0" />
-      <Button fx:id="addButton" layoutX="481.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#DuplicateBeverageEvent">
-         <graphic>
-            <ImageView cache="true" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/add.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="removeButton" layoutX="481.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#RemoveBeverageEvent">
-         <graphic>
-            <ImageView cache="true" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/minimize-sign.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="editButton" layoutX="483.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#EditBeverageEvent" text="Edit" />
-      <Label layoutX="315.0" layoutY="40.0" text="Flavors" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="40.0" />
-      <Label fx:id="flavorLabel" alignment="TOP_LEFT" layoutX="294.0" layoutY="68.0" prefHeight="120.0" prefWidth="145.0" text="Label" wrapText="true" />
+      <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="550.0" spacing="5.0">
+         <children>
+            <VBox prefHeight="180.0" prefWidth="120.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="beverageName" pickOnBounds="false" prefHeight="31.0" text="Label" VBox.vgrow="ALWAYS" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="coffeeImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/coldbrew.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Size:" />
+                                          <Label fx:id="sizeLabel" text="Label" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Dairy:" />
+                                          <Label fx:id="milkLabel" text="Label" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <TextArea fx:id="flavorLabel" editable="false" prefHeight="200.0" prefWidth="150.0" wrapText="true" />
+            <Separator orientation="VERTICAL" prefHeight="150.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="beveragePrice" text="Label" />
+                  <Button fx:id="addButton" mnemonicParsing="false" onMouseClicked="#DuplicateBeverageEvent">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="removeButton" mnemonicParsing="false" onMouseClicked="#RemoveBeverageEvent">
+                     <graphic>
+                        <ImageView cache="true" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/minimize-sign.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="editButton" mnemonicParsing="false" onMouseClicked="#EditBeverageEvent" text="Edit" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="25.0" top="10.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -31,7 +32,10 @@ public class CartCell extends ListCell<CoffeeModel> {
     private AnchorPane base;
 
     @FXML
-    private Label beverageName, beveragePrice,milkLabel, sizeLabel, flavorLabel;
+    private Label beverageName, beveragePrice,milkLabel, sizeLabel; //, flavorLabel
+
+    @FXML
+    private TextArea flavorLabel;
 
     @FXML
     private Button addButton, removeButton, editButton;
@@ -91,6 +95,7 @@ public class CartCell extends ListCell<CoffeeModel> {
 
     @FXML
     void EditBeverageEvent(MouseEvent event) throws IOException {
+        CoffeeManager.getInstance().stateEdit();
         CoffeeManager.getInstance().setCurrentItem(CoffeeManager.getInstance().getBeverageCart(itemID));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("customization-view.fxml"));
         Parent root = loader.load();
